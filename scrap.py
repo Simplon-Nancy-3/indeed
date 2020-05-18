@@ -3,9 +3,57 @@ import requests
 import re, json
 import ast
 
-req = requests.get('https://www.indeed.fr/emplois?q=data+scientist&start=0')
-for hit in re.findall(r'jobmap\[[0-9]+\]= {jk:\'([a-z0-9]+)\'', req.text):
-    job_url = 'https://www.indeed.fr/voir-emploi?jk={}'.format(hit)
-    soup = BeautifulSoup(requests.get(job_url).text, features="html.parser")
-    job_title = soup.find('div', attrs={'class':'jobsearch-JobInfoHeader-title-container'})
-    print({'title':job_title.text})
+from pymongo import MongoClient
+
+# data+scientist
+QUERY = 'developpeur'
+
+client = MongoClient('mongodb://localhost:27017')
+db=client.indeed
+
+def get_jobs(q, start):
+    url = 'https://www.indeed.fr/emplois?q={}&start={}'.format(q, start)
+    req = requests.get(url)
+    return url, re.findall(r'jobmap\[[0-9]+\]= {([^}]*)}', req.text)
+def get_job():
+    return BeautifulSoup(requests.get(job['url']).text, features="html.parser")
+
+def parse_js(_str):
+    return {i.split(':')[0]:(':'.join(i.split(':')[1:])[1:]) for i in _str.split('\',')}
+
+def job_exist(_id):
+    return db['jobs_test'].count_documents({'_id':_id}) > 0
+def insert_job(job):
+    job['_id'] = job['jk']
+    del job['jk']
+    db['jobs_test'].insert_one(job)
+
+
+def parse_url(job):
+    job['url'] = 'https://www.indeed.fr/voir-emploi?jk={}'.format(job['jk'])
+def parse_meta(job, soup):
+    for div in soup.find_all('div', attrs={'class': ['jobsearch-InlineCompanyRating', 'icl-u-xs-mt--xs', 'jobsearch-DesktopStickyContainer-companyrating']}):
+        job.update({'%s_meta'%div.find('div')['class'][1].split('--')[-1]:div.text})
+def parse_desc(job, soup):
+    desc = soup.find('div', attrs={'id':"jobDescriptionText"})
+    job.update({'desc': desc.text if desc != None else ''})
+def parse_footer(job, soup):
+    job.update({'footer':soup.find('div', attrs={'class':'jobsearch-JobMetadataFooter'}).text})
+
+for i in range(0, 1100, 10):
+    url, jobs = get_jobs(QUERY, i)
+    for j in range(0, len(jobs)):
+        job = parse_js(jobs[j])
+        if not job_exist(job['jk']):
+            parse_url(job)
+            soup = get_job()
+            parse_meta(job,soup)
+            parse_desc(job,soup)
+            parse_footer(job,soup)
+            insert_job(job)
+            print('{}/{} - {}'.format(j, len(jobs), job['url']))
+    print('{}/{} - {}'.format(i, 1100, url))
+
+client.close()
+
+
