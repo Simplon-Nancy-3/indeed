@@ -7,7 +7,7 @@ def extract_kv(str_):
     kv = str_.split('\',')
     for i in range(len(kv)):
         k, v = kv[i].split(':') 
-        kv[i] = (k, v[1:-1])
+        kv[i] = (k, v[1:])
     return kv
 
 def dict_from_str(str_, dict_):
