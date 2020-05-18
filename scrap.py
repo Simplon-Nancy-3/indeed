@@ -3,26 +3,9 @@ import requests
 import re, json
 import ast
 
-def extract_kv(str_):
-    kv = str_.split('\',')
-    for i in range(len(kv)):
-        k, v = kv[i].split(':') 
-        kv[i] = (k, v[1:])
-    return kv
-
-def dict_from_str(str_, dict_):
-    kv = extract_kv(str_)
-    dict_.update({kv[0][1]:{k:v for k, v in kv[1:]}})
-    return dict_
-
-# req = requests.get('https://www.indeed.fr/emplois?q=data+scientist&start=0')
-# with open("html/sample_0.html", 'w') as f:
-#     f.write(BeautifulSoup(req.text, features="html.parser").prettify())
-
-res = {}
-with open("html/sample_0.html", 'r') as f:
-    for hit in re.findall(r'jobmap\[[0-9]+\]= {([^}]*)}', f.read()):
-        dict_from_str(hit, res)
-
-with open('json/sample_0.json', 'w') as fw:
-    fw.write(json.dumps(res))
+req = requests.get('https://www.indeed.fr/emplois?q=data+scientist&start=0')
+for hit in re.findall(r'jobmap\[[0-9]+\]= {jk:\'([a-z0-9]+)\'', req.text):
+    job_url = 'https://www.indeed.fr/voir-emploi?jk={}'.format(hit)
+    soup = BeautifulSoup(requests.get(job_url).text, features="html.parser")
+    job_title = soup.find('div', attrs={'class':'jobsearch-JobInfoHeader-title-container'})
+    print({'title':job_title.text})
