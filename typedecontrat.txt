@@ -1,0 +1,11 @@
+TYPE  DE CONTRAT 
+	&jt=
+CDI = permanent
+temps plein = fulltime
+apprentissage = apprenticeship
+contrat pro = custom_1
+CDD = contract
+intérim = temporary
+temps partiel = parttime
+
+['permanent','fulltime','apprenticeship','custom_1','contract','temporary','parttime']
