@@ -9,3 +9,4 @@ intérim = temporary
 temps partiel = parttime
 
 ['permanent','fulltime','apprenticeship','custom_1','contract','temporary','parttime']
+['CDI','temps plein','apprentissage','contrat pro','CDD','intérim','temps partiel','notfound']

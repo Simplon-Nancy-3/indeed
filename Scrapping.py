@@ -2,14 +2,14 @@ import pandas as pd
 import numpy as np 
 from bs4 import BeautifulSoup
 import requests
-def scrapPage(urldelapageascrap):
+def scrapPage(urldelapageascrap,job,ville):
     try : 
         req = requests.get(urldelapageascrap)
     except:
-        return pd.DataFrame(columns=['Title','Company','Location','TypeContrat','Salary','Description','Date','Link'])
+        return pd.DataFrame(columns=['Title','Company','Location','TypeContrat','Salary','Description','Date','Link','Job','Ville'])
     soup = BeautifulSoup( req.text , 'lxml')
     url = []
-    data = pd.DataFrame(columns=['Title','Company','Location','TypeContrat','Salary','Description','Date','Link'])
+    data = pd.DataFrame(columns=['Title','Company','Location','TypeContrat','Salary','Description','Date','Link','Job','Ville'])
     for jobs in soup.find_all('div', {'class': 'jobsearch-SerpJobCard'}):
         url.append(jobs.find('h2',{'class':'title'}).find('a')['href'])
     for link in url : 
@@ -50,24 +50,24 @@ def scrapPage(urldelapageascrap):
             description = description.text
         else : 
             description = 'notfound'
-        makeappend = pd.DataFrame({'Title':[title],'Company':[company],'Location':[location],'TypeContrat':[contrattype],'Salary':[salary],'Description':[description],'Date':[date],'Link':[link]})
+        makeappend = pd.DataFrame({'Title':[title],'Company':[company],'Location':[location],'TypeContrat':[contrattype],'Salary':[salary],'Description':[description],'Date':[date],'Link':[link],'Job':[job], 'Ville': [ville]})
         data = pd.concat([data, makeappend], axis=0, sort=False,ignore_index=True)
     return data
 
-def pagination(url) : 
-    data = pd.DataFrame(columns=['Title','Company','Location','TypeContrat','Salary','Description','Date','Link'])
+def pagination(url,job,ville) : 
+    data = pd.DataFrame(columns=['Title','Company','Location','TypeContrat','Salary','Description','Date','Link','Job','Ville'])
     for i in range(0,154,14):
         urlpagine =  url + '&start='+str(i)
-        doto = scrapPage(urlpagine)
+        doto = scrapPage(urlpagine,job,ville)
         data = pd.concat([data, doto], axis=0, sort=False,ignore_index=True)
     return data
 
 def makejobetville(jobs,villes):
-    data = pd.DataFrame(columns=['Title','Company','Location','TypeContrat','Salary','Description','Date','Link'])
+    data = pd.DataFrame(columns=['Title','Company','Location','TypeContrat','Salary','Description','Date','Link','Job','Ville'])
     for job in jobs :
         for ville in villes: 
             url = 'https://www.indeed.fr/jobs?q=' + job + '&l=' + ville
-            doto = pagination(url)
+            doto = pagination(url,job,ville)
             data = pd.concat([data, doto], axis=0, sort=False,ignore_index=True)
     return data
 
@@ -75,7 +75,7 @@ def makejobetville(jobs,villes):
 
 #data = scrapPage("https://www.indeed.fr/jobs?q=dev&l=Paris")
 #pagination("https://www.indeed.fr/jobs?q=dev&l=Paris")
-data = makejobetville(['Data Scientist','data engineer','data analyst'], ['Paris','Bordeaux','Lyon','Nancy'])
+data = makejobetville(['Data Scientist','data engineer','data analyst','Business Intelligence'], ['Paris','Bordeaux','Lyon','Nancy','Toulouse','Nantes','Marseille'])
 #data = makejobetville(['Data Scientist'], ['Lyon'])
 data.to_csv(r'C:\Users\Utilisateur\Videos\Python\semaine18distance9projet3\indeed\test.csv')
 
