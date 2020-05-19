@@ -5,8 +5,8 @@ import ast
 
 from pymongo import MongoClient
 
-# data+scientist
-QUERY = 'developpeur'
+# data+scientist, developpeur
+QUERY = 'business+intelligence'
 
 client = MongoClient('mongodb://localhost:27017')
 db=client.indeed
@@ -32,15 +32,17 @@ def insert_job(job):
 def parse_url(job):
     job['url'] = 'https://www.indeed.fr/voir-emploi?jk={}'.format(job['jk'])
 def parse_meta(job, soup):
+    job['salary'] = None
     for div in soup.find_all('div', attrs={'class': ['jobsearch-InlineCompanyRating', 'icl-u-xs-mt--xs', 'jobsearch-DesktopStickyContainer-companyrating']}):
-        job.update({'%s_meta'%div.find('div')['class'][1].split('--')[-1]:div.text})
+        job.update({'%s'%div.find('div')['class'][1].split('--')[-1]:div.text})
 def parse_desc(job, soup):
     desc = soup.find('div', attrs={'id':"jobDescriptionText"})
     job.update({'desc': desc.text if desc != None else ''})
 def parse_footer(job, soup):
-    job.update({'footer':soup.find('div', attrs={'class':'jobsearch-JobMetadataFooter'}).text})
+    footer = soup.find('div', attrs={'class':'jobsearch-JobMetadataFooter'})
+    job.update({'footer':footer.text if footer != None else None})
 
-for i in range(0, 1100, 10):
+for i in range(0, 10000, 10):
     url, jobs = get_jobs(QUERY, i)
     for j in range(0, len(jobs)):
         job = parse_js(jobs[j])
@@ -52,7 +54,7 @@ for i in range(0, 1100, 10):
             parse_footer(job,soup)
             insert_job(job)
             print('{}/{} - {}'.format(j, len(jobs), job['url']))
-    print('{}/{} - {}'.format(i, 1100, url))
+    print('{}/{} - {}'.format(i+10, 10000, url))
 
 client.close()
 
