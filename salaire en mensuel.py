@@ -44,13 +44,12 @@ def mensuel(salaire) :
         mini = int(salaire[:pos1-1].replace(" ", ""))
         maxi = int(salaire[pos1+4:pos1+3+pos2].replace(" ", ""))
         msalaire = (mini + maxi)/2
-        #print(salaire, min, max, nsalaire)
     else :
         pos1 = salaire.find('€')
         msalaire = mini = maxi = int(salaire[:pos1-1].replace(" ", ""))
 
     periode = salaire[salaire.find('par'):]
-    #print(periode)
+
     if periode == 'par an':
         msalaire = msalaire / 12
         mini = mini / 12
@@ -66,6 +65,10 @@ def mensuel(salaire) :
    
     return(mini, maxi, msalaire)
 
+# =============================================================================
+# Ajout des 3 colonnes pour chaque enrregistrement
+# Si nan => on laisse en planc
+# =============================================================================
 mini=[]
 maxi=[]
 moyen=[]
@@ -87,6 +90,10 @@ df['maxi']=pd.DataFrame(maxi,columns =['maxi'])
 df['moyen']=pd.DataFrame(moyen,columns =['moyen'])
 
 
+# =============================================================================
+# Export du dataframe complété
+# =============================================================================
+df.to_csv(r''+path+'indeed-sal.csv')
 
 
 
