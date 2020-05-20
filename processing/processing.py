@@ -29,20 +29,14 @@ class SalaryProcessor():
             splited = str(row).split('€')
             res.append(np.array(self.states[len(splited)](splited)))
             if res[-1][0] != 0:
-                # print('*********')
-                # print(res[-1])
                 origin_fmt = int(res[-1][3])
                 target_fmt = self.conv_names.index(self.by)
                 if origin_fmt != target_fmt:
                     step = int((target_fmt - origin_fmt)/ (abs(target_fmt - origin_fmt)))
-                    # print(res[-1][:3])
                     origin_fmt -= 1 if step > 0 else 0
                     while origin_fmt != target_fmt:
                         res[-1][:3] = res[-1][:3] * self.conv_values[origin_fmt + 1] if step > 0 else res[-1][:3] / self.conv_values[origin_fmt - 1]
-                        # print('{}, {} - {}'.format(origin_fmt + 1, origin_fmt -1, res[-1][:3]))
                         origin_fmt += step
-                    # print(res[-1][:3])
-
         return res
 
     def process_dataframe(self, df, target):

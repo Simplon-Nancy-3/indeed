@@ -5,7 +5,7 @@ import ast
 
 from pymongo import MongoClient
 
-# data+scientist, developpeur
+# data+scientist, data+scientist, developpeur
 QUERY = 'business+intelligence'
 
 client = MongoClient('mongodb://localhost:27017')
