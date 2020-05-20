@@ -3,6 +3,45 @@ import numpy as np
 
 NONE_VALUE = [0,0,0,0]
 
+class MultipleCategorieProcessor():
+    def __init__(self, separator=',', cats_to_catch = {}, cats_to_drop = []):
+        self.cats_to_catch = cats_to_catch
+        self.cats_to_drop = cats_to_drop
+        self.separator = separator
+
+    def fit(self, X):
+        self.cats = set()        
+        for x in X:
+            for key in str(x).split(','):
+                self.cats.add(self.catch_value(key))
+        self.cats = list(self.cats)
+        return self
+    
+    def transform(self, X):
+        res = np.zeros((len(X), len(self.cats)), dtype=int)
+        for i in range(len(X)):
+            for key in str(X[i]).split(self.separator):
+                res[i, self.cats.index(self.catch_value(key))] = 1
+        return res
+
+    def fit_transform(self, X):
+        return self.fit(X).transform(X)
+
+    def process_dataframe(self, df, target):
+        return pd.concat([
+            df, pd.DataFrame(
+                self.fit_transform(df[target]), columns=self.format_cats(self.cats, target))], 
+                axis=1).drop(self.format_cats(self.cats_to_drop, target), axis=1)
+
+    def catch_value(self, to_catch):
+        to_catch = to_catch.strip()
+        if to_catch in self.cats_to_catch.keys():
+            return self.cats_to_catch[to_catch]
+        return to_catch
+    
+    def format_cats(self, cats, target):
+        return ['{}_{}'.format(target, cat) for cat in cats]
+
 class SalaryProcessor():
     def __init__(self, by='mois', hour_by_day=8, day_by_week=5, week_by_month=4, month_by_year=12):
         self.by = by
@@ -45,3 +84,7 @@ class SalaryProcessor():
                 df, 
                 pd.DataFrame(self.process_series(df[target]), columns=['salary_min', 'salary_max', 'salary_mean', 'salary_original_mode'])
             ], axis=1).drop(target, axis=1)
+
+
+# df = pd.read_csv('csv/indeed_pierre.csv')
+# print(ContractProcessor({'Freelance / Indépendant':'Indépendant'}).fit(df['contract']).transform(df['contract']))
