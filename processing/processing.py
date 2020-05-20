@@ -83,7 +83,9 @@ class SalaryProcessor():
             [
                 df, 
                 pd.DataFrame(self.process_series(df[target]), columns=['salary_min', 'salary_max', 'salary_mean', 'salary_original_mode'])
-            ], axis=1).drop(target, axis=1)
+            ], axis=1)
+
+
 
 
 # df = pd.read_csv('csv/indeed_pierre.csv')
