@@ -45,9 +45,9 @@ class SalaryProcessor():
 
         return res
 
-        def process_dataframe(self, df, target):
-            return pd.concat(
-                [
-                    df, 
-                    pd.DataFrame(self.process_series(df[target]), columns=['salary_min', 'salary_max', 'salary_mean', 'salary_original_mode'])
-                ], axis=1).drop(target, axis=1)
+    def process_dataframe(self, df, target):
+        return pd.concat(
+            [
+                df, 
+                pd.DataFrame(self.process_series(df[target]), columns=['salary_min', 'salary_max', 'salary_mean', 'salary_original_mode'])
+            ], axis=1).drop(target, axis=1)
