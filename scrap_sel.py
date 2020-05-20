@@ -13,8 +13,8 @@ from pymongo import MongoClient
 
 import time
 
-QUERY = 'devellopeur'
-TABLE = 'jobs_sel'
+QUERY = 'developpeur' #data+scientist #data+analyst #business+intelligence #devellopeur
+TABLE = 'jobs'
 features = [
     {'name':'title', 
         'xpath':'//div[@data-jk="{}"]/*[@class="title"]', 
@@ -37,7 +37,7 @@ features = [
         'callback':lambda x: None, 
         'errors':[]},
     {'name':'salary', 
-        'xpath':'//div[@data-jk="{}"]/*[@class="salarySnippet salarySnippetDemphasizeholisticSalary"]', 
+        'xpath':'//div[@data-jk="{}"]/div[@class="salarySnippet salarySnippetDemphasizeholisticSalary"]', 
         'extract':lambda x: x.text, 
         'callback':lambda x: None, 
         'errors':[]},
@@ -92,7 +92,7 @@ driver.set_window_size(1920, 1080)
 wait = WebDriverWait(driver, 60*5)
 
 c= 0
-for i in range(0, 1000, 10):
+for i in range(0, 1010, 10):
     driver.delete_all_cookies()
     driver.get('https://www.indeed.fr/emplois?q={}&start={}'.format(QUERY, i))
     for elem in driver.find_elements_by_class_name('jobsearch-SerpJobCard'):
