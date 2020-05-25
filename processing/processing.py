@@ -6,6 +6,17 @@ from sklearn.preprocessing import FunctionTransformer
 from datetime import datetime, timedelta
 import re
 
+class FeatureSelector(TransformerMixin, BaseEstimator):
+    def __init__(self, names=None):
+        self.names = names
+    
+    def fit(self, X, y = None):
+        return self
+    def transform(self, X, y = None):
+        return X[self.names]
+    def fit_transform(self, X, y = None):
+        return self.fit(X, y).transform(X, y)
+
 class MultiCategoriesTransformer(TransformerMixin, BaseEstimator):
     def __init__(self, target, separator=',', replace_key_value = {}, drop_key = [], clean_func=lambda x: x.strip()):
         self.target = target
@@ -167,6 +178,13 @@ indeed_pl = Pipeline(
         ('sponso_transformer', FunctionTransformer(transform_sponso))
     ],
     verbose=1)
+
+indeed_txt_pl = Pipeline(
+        steps=[
+        ('salary_transformer', FunctionTransformer(transform_salary)),
+        ('feature_selector', FeatureSelector(names=['salary_mean', 'title', 'summary', 'desc']))],
+    verbose=1)
+
 
 # df = pd.read_csv('csv/indeed_pierre.csv')
 # indeed_pl.fit_transform(df).info()
