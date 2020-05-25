@@ -210,7 +210,7 @@ def concatotherDF():
     return diti
 
 def getDFcleanedFulled():
-    data = getdata('test.csv')
+    data = getdata('data/3055rows.csv')
     data= getpreprocessdata(data)
     diti = concatotherDF()
     dutu = pd.concat([data,diti],axis=0)
