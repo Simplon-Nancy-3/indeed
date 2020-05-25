@@ -129,7 +129,7 @@ def transform_location(X, target='location', names=['location_dirty', 'dep'],  n
     res = np.empty((len(x), len(names)), dtype=object)
 
     for i in range(0, len(x)):
-        dep = re.search(r'([0-9]+)', str(x[i]))
+        dep = re.search(r'\(([0-9]+)\)', str(x[i]))
         if dep != None:
             res[i, 0] = x[i].split('(')[0]
             res[i, 1] = dep.groups()[0]
