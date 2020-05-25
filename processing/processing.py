@@ -1,92 +1,172 @@
 import pandas as pd
 import numpy as np
+from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.pipeline import Pipeline 
+from sklearn.preprocessing import FunctionTransformer 
+from datetime import datetime, timedelta
+import re
 
-NONE_VALUE = [0,0,0,0]
-
-class MultipleCategorieProcessor():
-    def __init__(self, separator=',', cats_to_catch = {}, cats_to_drop = []):
-        self.cats_to_catch = cats_to_catch
-        self.cats_to_drop = cats_to_drop
+class MultiCategoriesTransformer(TransformerMixin, BaseEstimator):
+    def __init__(self, target, separator=',', replace_key_value = {}, drop_key = [], clean_func=lambda x: x.strip()):
+        self.target = target
         self.separator = separator
+        self.clean_func = clean_func
+        self.replace_key_value = replace_key_value
+        self.drop_key = drop_key
+        self.keys_ = None
 
-    def fit(self, X):
-        self.cats = set()        
-        for x in X:
-            for key in str(x).split(','):
-                self.cats.add(self.catch_value(key))
-        self.cats = list(self.cats)
-        return self
-    
-    def transform(self, X):
-        res = np.zeros((len(X), len(self.cats)), dtype=int)
-        for i in range(len(X)):
-            for key in str(X[i]).split(self.separator):
-                res[i, self.cats.index(self.catch_value(key))] = 1
-        return res
-
-    def fit_transform(self, X):
+    def fit(self, X, y = None):
+        return self.fit_series(X[self.target])
+    def transform(self, X, y = None):
+        return pd.concat([X, pd.DataFrame(
+                self.transform_series(X[self.target]), columns=self.format_keys(self.keys_))], 
+                axis=1).drop(self.format_keys(self.drop_key), axis=1)
+    def fit_transform(self, X, y = None):
         return self.fit(X).transform(X)
 
-    def process_dataframe(self, df, target):
-        return pd.concat([
-            df, pd.DataFrame(
-                self.fit_transform(df[target]), columns=self.format_cats(self.cats, target))], 
-                axis=1).drop(self.format_cats(self.cats_to_drop, target), axis=1)
+    def fit_series(self, X):
+        X = X.to_numpy() if isinstance(X, pd.Series) else X
+        self.keys_ = set()        
 
-    def catch_value(self, to_catch):
-        to_catch = to_catch.strip()
-        if to_catch in self.cats_to_catch.keys():
-            return self.cats_to_catch[to_catch]
-        return to_catch
+        for x in X:
+            for key in str(x).split(','):
+                self.keys_.add(self.catch_value(key))
+        self.keys_ = list(self.keys_)
+
+        return self
+    def transform_series(self, X):
+        X = X.to_numpy() if isinstance(X, pd.Series) else X
+        res = np.zeros((len(X), len(self.keys_)), dtype=int)
+
+        for i in range(len(X)):
+            for key in str(X[i]).split(self.separator):
+                res[i, self.keys_.index(self.catch_value(key))] = 1
+
+        return res    
+    def fit_transform_series(self, X):
+        return self.fit_series(X).transform_series(X)
+        # Todo return dataframe if dataframe is passed return numpy array else
+
+    def catch_value(self, key):
+        key = self.clean_func(key)
+        if key in self.replace_key_value.keys():
+            return self.replace_key_value[key]
+        return key 
+    def format_keys(self, keys):
+        return ['{}_{}'.format(self.target, key) for key in keys]
+
+def transform_salary(X, target='salary', 
+    names=['salary_origin_mode','salary_min','salary_max','salary_mean'], 
+    target_mode='mois', hour_by_day=8, day_by_week=5, week_by_month=4,
+    month_by_year=12, drop_target=False):
+
+    # Todo : handle conversion elsewhere 
+    target_mode = str(target_mode)
+    to_year = {
+        'None': lambda:x,
+        'heure': lambda x: x * hour_by_day *  day_by_week * week_by_month * month_by_year,
+        'jour': lambda x: x * day_by_week * week_by_month * month_by_year,
+        'semaine': lambda x: x * week_by_month * month_by_year,
+        'mois': lambda x: x * month_by_year,
+        'an': lambda x: x}
+    from_year = {
+        'None': lambda x: x,
+        'heure': lambda x: x / month_by_year / week_by_month / day_by_week / hour_by_day,
+        'jour': lambda x: x / month_by_year / week_by_month / day_by_week,
+        'semaine': lambda x: x / month_by_year / week_by_month,
+        'mois': lambda x: x / month_by_year,
+        'an': lambda x: x}
+
+    x = X[target].to_numpy()
+    res = np.empty((len(x), len(names)), dtype=object)
+
+    for i in range(0, len(x)):
+        salary = str(x[i])
+        salary_min_max = re.findall(r'([0-9 ]+)€', salary)
+
+        if len(salary_min_max) == 0:
+            res[i, 0] = res[i, 1] = res[i, 2] = res[i, 3] = np.nan
+        else:
+            res[i, 0] = re.search(r'par ([a-z]+)', salary).groups()[0]
+            res[i, 1] = res[i, 2] = from_year[target_mode](to_year[res[i, 0]](float(salary_min_max[0].replace(' ', ''))))
+            if len(salary_min_max) > 1:
+                res[i, 2] = from_year[target_mode](to_year[res[i, 0]](float(salary_min_max[1].replace(' ', ''))))
+            res[i, 3] = (res[i, 1] + res[i, 2]) / 2 
+
+    X[names[0]] = res[:, 0]
+    X[names[1]] = res[:, 1].astype(float)
+    X[names[2]] = res[:, 2].astype(float)
+    X[names[3]] = res[:, 3].astype(float)
+ 
+    return X.drop(target, axis=1) if drop_target else X
+
+def transform_date(X, target='day_since', name='date', scrap_day= datetime(2020, 5, 20), drop_target=False):
+    x = X[target].to_numpy()
+    res = np.empty((len(x)), dtype=object)
+
+    for i in range(0, len(x)):
+        _date = re.search(r'([0-9]+)', str(x[i]))
+        res[i] =  scrap_day - timedelta(days=int(_date.groups()[0])) if _date else scrap_day
+
+    X[name] = res 
+
+    return X.drop(target, axis=1) if drop_target else X
+
+def transform_rating_mean(X, target='rating_mean', nan_value=0, keep_original=False):
+    if keep_original:
+        X['%s_original'%target] = X[target]
+    X[target] = X[target].apply(lambda x : float(x.replace(',', '.')) if str(x)[0].isdigit() else nan_value)
+    return X
+
+def transform_rating_count(X, target='rating_count', nan_value=0, keep_original=False):
+    if keep_original:
+        X['%s_original'%target] = X[target]
+    X[target] = X[target].apply(lambda x : int(x.split(' ')[0].replace(',', '')) if type(x) == str else nan_value)
+    return X
+
+def transform_location(X, target='location', names=['location_dirty', 'dep'],  nan_value=np.nan, drop_target=False):
+    x = X[target].to_numpy()
+    res = np.empty((len(x), len(names)), dtype=object)
+
+    for i in range(0, len(x)):
+        dep = re.search(r'([0-9]+)', str(x[i]))
+        if dep != None:
+            res[i, 0] = x[i].split('(')[0]
+            res[i, 1] = dep.groups()[0]
+        else:
+            res[i, 0] = x[i]
+            res[i, 1] = np.nan
     
-    def format_cats(self, cats, target):
-        return ['{}_{}'.format(target, cat) for cat in cats]
+    X[names[0]] = res[:, 0]
+    X[names[1]] = res[:, 1].astype(float)
 
-class SalaryProcessor():
-    def __init__(self, by='mois', hour_by_day=8, day_by_week=5, week_by_month=4, month_by_year=12):
-        self.by = by
-        self.conv_values = [hour_by_day, day_by_week, week_by_month, month_by_year, 1]
-        self.conv_names = ['heure', 'jour', 'semaine', 'mois', 'an']
-        self.states = [
-            lambda x: NONE_VALUE,   # if len == 0
-            lambda x: NONE_VALUE,   # if len == 1
-            lambda x: [             # if len == 2
-                int(x[0].replace(' ', '')), 
-                int(x[0].replace(' ', '')), 
-                int(x[0].replace(' ', '')),
-                self.conv_names.index(x[1].split(' ')[-1])],
-            lambda x: [             # if len == 3
-                int(x[0].replace(' ', '')), 
-                int(x[1].replace(' ', '').replace('-', '')), 
-                (int(x[0].replace(' ', '')) + int(x[1].replace(' ', '').replace('-', '')))/2, 
-                self.conv_names.index(x[2].strip().split(' ')[-1])]]
+    return X.drop(target, axis=1) if drop_target else X
 
-    def process_series(self, X):
-        X = X.to_numpy() if type(X) == pd.Series else X
-        res = []
-        for row in X:
-            splited = str(row).split('€')
-            res.append(np.array(self.states[len(splited)](splited)))
-            if res[-1][0] != 0:
-                origin_fmt = int(res[-1][3])
-                target_fmt = self.conv_names.index(self.by)
-                if origin_fmt != target_fmt:
-                    step = int((target_fmt - origin_fmt)/ (abs(target_fmt - origin_fmt)))
-                    origin_fmt -= 1 if step > 0 else 0
-                    while origin_fmt != target_fmt:
-                        res[-1][:3] = res[-1][:3] * self.conv_values[origin_fmt + 1] if step > 0 else res[-1][:3] / self.conv_values[origin_fmt - 1]
-                        origin_fmt += step
-        return res
+def transform_sponso(X, target='sponso', keep_original=False):
+    if keep_original:
+        X['%s_original'%target] = X[target]
+    X[target] = X[target].apply(lambda x : 0 if type(x) == str else 1)
+    return X
 
-    def process_dataframe(self, df, target):
-        return pd.concat(
-            [
-                df, 
-                pd.DataFrame(self.process_series(df[target]), columns=['salary_min', 'salary_max', 'salary_mean', 'salary_original_mode'])
-            ], axis=1)
-
-
-
+indeed_pl = Pipeline(
+    steps=[
+        ('salary_transformer', FunctionTransformer(transform_salary)),
+        ('date_transformer', FunctionTransformer(transform_date)),
+        ('query_transfomer', MultiCategoriesTransformer(
+            'query',
+            replace_key_value= {'devellopeur':'developpeur'},
+            clean_func=lambda x: x.replace('"', '').replace('[', '').replace(']', '').lower().strip())),
+        ('contract_transformer', MultiCategoriesTransformer(
+            'contract', 
+            replace_key_value={'freelance / indépendant':'indépendant'},
+            drop_key=['nan'],
+            clean_func=lambda x: x.lower().strip())),
+        ('rating_mean_transformer', FunctionTransformer(transform_rating_mean)),
+        ('rating_count_transformer', FunctionTransformer(transform_rating_count)),
+        ('location_transformer', FunctionTransformer(transform_location)),
+        ('sponso_transformer', FunctionTransformer(transform_sponso))
+    ],
+    verbose=1)
 
 # df = pd.read_csv('csv/indeed_pierre.csv')
-# print(ContractProcessor({'Freelance / Indépendant':'Indépendant'}).fit(df['contract']).transform(df['contract']))
+# indeed_pl.fit_transform(df).info()

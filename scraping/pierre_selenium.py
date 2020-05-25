@@ -13,8 +13,8 @@ from pymongo import MongoClient
 
 import time
 
-QUERY = 'developpeur' #data+scientist #data+analyst #business+intelligence #devellopeur
-TABLE = 'jobs'
+QUERY = 'ressources+humaines' #data+scientist #data+analyst #business+intelligence #devellopeur
+TABLE = 'jobs_rh'
 features = [
     {'name':'title', 
         'xpath':'//div[@data-jk="{}"]/*[@class="title"]', 
@@ -51,12 +51,12 @@ features = [
         'extract':lambda x: x.text, 
         'callback':lambda x: None, 
         'errors':[]},
-    {'name':'date ', 
+    {'name':'day_since', 
         'xpath':'//div[@data-jk="{}"]/*[@class="jobsearch-SerpJobCard-footer"]/div/div/div/*[@class="date "]', 
         'extract':lambda x: x.text, 
         'callback':lambda x: None, 
         'errors':[]},
-    {'name':'rating_count ', 
+    {'name':'rating_count', 
         'xpath':'//*[@class="slNoUnderline"]', 
         'extract':lambda x: x.text, 
         'callback':lambda x: None, 
@@ -70,8 +70,7 @@ features = [
         'xpath':'//div[@id="vjs-desc"]', 
         'extract':lambda x: x.text, 
         'callback':lambda x: None, 
-        'errors':[]}, 
-]
+        'errors':[]}]
 
 client = MongoClient('mongodb://localhost:27017')
 db=client.indeed
@@ -92,7 +91,7 @@ driver.set_window_size(1920, 1080)
 wait = WebDriverWait(driver, 60*5)
 
 c= 0
-for i in range(0, 1010, 10):
+for i in range(0, 2000, 10):
     driver.delete_all_cookies()
     driver.get('https://www.indeed.fr/emplois?q={}&start={}'.format(QUERY, i))
     for elem in driver.find_elements_by_class_name('jobsearch-SerpJobCard'):
