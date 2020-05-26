@@ -68,7 +68,7 @@ class MultiCategoriesTransformer(TransformerMixin, BaseEstimator):
 
 def transform_salary(X, target='salary', 
     names=['salary_origin_mode','salary_min','salary_max','salary_mean'], 
-    target_mode='mois', hour_by_day=8, day_by_week=5, week_by_month=4,
+    target_mode='an', hour_by_day=8, day_by_week=5, week_by_month=4,
     month_by_year=12, drop_target=False):
 
     # Todo : handle conversion elsewhere 
@@ -159,6 +159,19 @@ def transform_sponso(X, target='sponso', keep_original=False):
     X[target] = X[target].apply(lambda x : 0 if type(x) == str else 1)
     return X
 
+def band_numerical(X, target='salary_mean', name='salary_band', bands = [25000, 60000, 1000000], drop_target=False):
+    x = X[target].to_numpy()
+    res = np.empty(len(x), dtype=object)
+    for i in range(0, len(x)):
+        if not x[i]:
+            continue
+        for j in range(0, len(bands)):
+            if x[i] <= bands[j]:
+                res[i] = j
+                break;
+    X[name] = res.astype(float)
+    return X.drop(target, axis=1) if drop_target else X
+
 indeed_pl = Pipeline(
     steps=[
         ('salary_transformer', FunctionTransformer(transform_salary)),
@@ -175,7 +188,8 @@ indeed_pl = Pipeline(
         ('rating_mean_transformer', FunctionTransformer(transform_rating_mean)),
         ('rating_count_transformer', FunctionTransformer(transform_rating_count)),
         ('location_transformer', FunctionTransformer(transform_location)),
-        ('sponso_transformer', FunctionTransformer(transform_sponso))
+        ('sponso_transformer', FunctionTransformer(transform_sponso)),
+        ('salary_bander', FunctionTransformer(band_numerical))
     ],
     verbose=1)
 
