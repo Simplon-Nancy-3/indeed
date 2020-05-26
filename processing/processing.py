@@ -163,8 +163,9 @@ def band_numerical(X, target='salary_mean', name='salary_band', bands = [25000, 
     x = X[target].to_numpy()
     res = np.empty(len(x), dtype=object)
     for i in range(0, len(x)):
-        if not x[i]:
+        if np.isnan(x[i]):
             continue
+        res[i] = len(bands)
         for j in range(0, len(bands)):
             if x[i] <= bands[j]:
                 res[i] = j
@@ -200,5 +201,5 @@ indeed_txt_pl = Pipeline(
     verbose=1)
 
 
-# df = pd.read_csv('csv/indeed_pierre.csv')
+# df = pd.read_csv('csv/jobs_it.csv')
 # indeed_pl.fit_transform(df).info()
