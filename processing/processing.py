@@ -2,7 +2,8 @@ import pandas as pd
 import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import Pipeline 
-from sklearn.preprocessing import FunctionTransformer 
+from sklearn.preprocessing import FunctionTransformer
+from sklearn.feature_extraction.text import CountVectorizer
 from datetime import datetime, timedelta
 import re
 
@@ -18,12 +19,13 @@ class FeatureSelector(TransformerMixin, BaseEstimator):
         return self.fit(X, y).transform(X, y)
 
 class MultiCategoriesTransformer(TransformerMixin, BaseEstimator):
-    def __init__(self, target, separator=',', replace_key_value = {}, drop_key = [], clean_func=lambda x: x.strip()):
+    def __init__(self, target, separator=',', replace_key_value = {}, drop_key = [], drop_target=False, clean_func=lambda x: x.strip()):
         self.target = target
         self.separator = separator
         self.clean_func = clean_func
         self.replace_key_value = replace_key_value
         self.drop_key = drop_key
+        self.drop_target = drop_target
         self.keys_ = None
 
     def fit(self, X, y = None):
@@ -31,7 +33,7 @@ class MultiCategoriesTransformer(TransformerMixin, BaseEstimator):
     def transform(self, X, y = None):
         return pd.concat([X, pd.DataFrame(
                 self.transform_series(X[self.target]), columns=self.format_keys(self.keys_))], 
-                axis=1).drop(self.format_keys(self.drop_key), axis=1)
+                axis=1).drop(self.format_keys(self.drop_key) + [self.target] if self.drop_target else [], axis=1)
     def fit_transform(self, X, y = None):
         return self.fit(X).transform(X)
 
@@ -173,6 +175,14 @@ def band_numerical(X, target='salary_mean', name='salary_band', bands = [25000, 
     X[name] = res.astype(float)
     return X.drop(target, axis=1) if drop_target else X
 
+def vectorize_feature(X, target='title', vectorizer=CountVectorizer(), drop_target=False):
+    res = pd.concat([X, pd.DataFrame(
+        vectorizer.fit_transform(X[target]).toarray(), 
+        columns=vectorizer.get_feature_names())],
+        axis = 1
+    )
+    return res.drop(target, axis=1) if drop_target else res
+
 indeed_pl = Pipeline(
     steps=[
         ('salary_transformer', FunctionTransformer(transform_salary)),
@@ -200,6 +210,30 @@ indeed_txt_pl = Pipeline(
         ('feature_selector', FeatureSelector(names=['salary_mean', 'title', 'summary', 'desc']))],
     verbose=1)
 
+ml_pl_0 = Pipeline(
+    steps=[
+        ('salary_transformer', FunctionTransformer(transform_salary)),
+        ('salary_bander', FunctionTransformer(band_numerical)),
+        ('location_transformer', FunctionTransformer(transform_location)),
+        ('feature_selector', FeatureSelector(names=['salary_mean', 'salary_band', 'title', 'query', 'contract', 'dep'])),
+        ('query_transfomer', MultiCategoriesTransformer(
+            'query',
+            replace_key_value= {'devellopeur':'developpeur'},
+            drop_target=True,
+            clean_func=lambda x: x.replace('"', '').replace('[', '').replace(']', '').lower().strip())),
+        ('contract_transformer', MultiCategoriesTransformer(
+            'contract', 
+            replace_key_value={'freelance / indépendant':'indépendant'},
+            drop_key=['nan'],
+            drop_target=True,
+            clean_func=lambda x: x.lower().strip())),
+        ('title_vectorizer', FunctionTransformer(vectorize_feature))],
+    verbose=1
+)
 
 # df = pd.read_csv('csv/jobs_it.csv')
-# indeed_pl.fit_transform(df).info()
+# df = ml_pl_0.fit_transform(df)
+# df.info()
+# for c in df.columns[:30]:
+#     print(c)
+# df.head()
