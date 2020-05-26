@@ -229,7 +229,7 @@ ml_pl_0 = Pipeline(
             clean_func=lambda x: x.lower().strip())),
         ('title_vectorizer', FunctionTransformer(vectorize_feature))],
     verbose=1
-)
+).set_params(title_vectorizer__kw_args={'drop_target': True})
 
 # df = pd.read_csv('csv/jobs_it.csv')
 # df = ml_pl_0.fit_transform(df)
