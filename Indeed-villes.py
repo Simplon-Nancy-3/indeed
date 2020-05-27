@@ -107,6 +107,13 @@ def base(df, region):
     print(y.shape)
     return(X, y)
 
+base(df, 'Paris')
+base(df, 'Lyon')
+base(df, 'Bordeaux')
+base(df, 'Nantes')
+base(df, 'Toulouse')
+
+
 def reglin_salaire(df, region) :
     X, y = base(df, region)
     from sklearn.model_selection import train_test_split
@@ -149,7 +156,7 @@ print('Toulouse :', reglin_salaire(df, 'Toulouse'))
 # =============================================================================
 # GradientBoostingClassifier -- fonctionne pas avec des variables continues !!
 # =============================================================================
-
+'''
 X, y = base(df, 'Paris')
 
 from sklearn.ensemble import GradientBoostingClassifier
@@ -159,7 +166,7 @@ clf = GradientBoostingClassifier(random_state=0)
 clf.fit(X_train, y_train)
 clf.predict(X_test)
 clf.score(X_test, y_test)
-
+'''
 
 # =============================================================================
 # GradientBoostingRegressor
@@ -228,16 +235,17 @@ for i, weights in enumerate(['uniform', 'distance']):
     knn = neighbors.KNeighborsRegressor(n_neighbors, weights=weights)
     y_ = knn.fit(X_train, y_train).predict(X_test)
 
+'''
     plt.subplot(2, 1, i + 1)
     plt.scatter(X, y, color='darkorange', label='data')
     plt.plot(T, y_, color='navy', label='prediction')
     plt.axis('tight')
     plt.legend()
-    plt.title("KNeighborsRegressor (k = %i, weights = '%s')" % (n_neighbors,
-                                                                weights))
+    plt.title("KNeighborsRegressor (k = %i, weights = '%s')" % (n_neighbors, weights))
 
 plt.tight_layout()
 plt.show()
+'''
 
 knn.predict(X_test)
 knn.score(X_test, y_test)
@@ -288,6 +296,50 @@ for i in range(10):
 
 
 # =============================================================================
-# 
+# Modèle QuantileRegressor
 # =============================================================================
+## Nécessite : pip install skquantreg
+from skquantreg import QuantileRegressor
+import numpy as np
+
+X, y = base(df, 'Paris')
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.4, random_state=5)
+
+model = QuantileRegressor(q=0.5)
+model.fit(X_train, y_train)
+model.predict(X_test)
+
+model.score(X_test, y_test)
+
+
+# =============================================================================
+# RecursiveLS - Moindres carrés récursifs
+# =============================================================================
+import statsmodels.api as sm
+X, y = base(df, 'Paris')
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.4, random_state=5)
+
+mod = sm.RecursiveLS(y_train, X_train)
+res = mod.fit()
+
+print(res.summary())
+
+
+# =============================================================================
+# Weighted Least Squares
+# =============================================================================
+import statsmodels.api as sm
+from statsmodels.sandbox.regression.predstd import wls_prediction_std
+X, y = base(df, 'Lyon')
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.4, random_state=5)
+
+mod_wls = sm.WLS(y_train, X_train)
+res_wls = mod_wls.fit()
+print(res_wls.summary())
+
+
+
+
+
+
 
