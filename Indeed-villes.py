@@ -128,6 +128,8 @@ def estime(df, region):
     #print(y.shape)
     return(X, y)
 
+'''
+## Vérifictaion du dataset Lyonnais
 lyon = pd.DataFrame(base(df,'Lyon')[1], columns=['Lyon'])
 lyon.to_excel(r''+path+'lyon.xlsx', sheet_name='indeed', index = False)
 
@@ -146,11 +148,8 @@ pyplot.xlim(0, paris.shape[0])
 pyplot.ylim(0, 180000)
 pyplot.title('Salaire sur Paris')
 pyplot.show()
+'''
 
-
-
-,
-  markersize = 10)
 
 def full(df):
     from sklearn.utils.validation import column_or_1d
@@ -178,8 +177,6 @@ for i in regions :
     X, y = base(df, i)
     print(i, y.shape)
 '''
-# Souci avec base Lyon...
-df_lyn = base(df,'Lyon')[1]
 
 
 def reglin_salaire(df, region) :
@@ -377,12 +374,21 @@ print('full =>')
 X, y = full(df)
 sal=ols_salaire(X, y)
 
+sal={}
 for i in regions :
     X, y = base(df, i)
     print()
     print(i,'=>')
-    print(ols_salaire(X, y))
+    sal[i]=ols_salaire(X, y)
 
+## Ca me génère un dictionnaire
+for cle in sal.keys():
+    print(cle)
+
+sal['Paris']
+
+
+    
 
 
 # =============================================================================
