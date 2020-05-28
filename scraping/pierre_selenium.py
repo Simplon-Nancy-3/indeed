@@ -13,8 +13,13 @@ from pymongo import MongoClient
 
 import time
 
-QUERY = 'ressources+humaines' #data+scientist #data+analyst #business+intelligence #devellopeur
-TABLE = 'jobs_rh'
+QUERY = 'data+scientist' #data+scientist #data+analyst #business+intelligence #developpeur
+LOCATION = 'Provence-Alpes-Côte d’Azur'  #Auvergne-Rhône-Alpes #Bourgogne-Franche-Comté 
+                        #Bretagne #Centre-Val de Loire #Corse #Grand Est 
+                        #Hauts-de-France #Ile-de-France #Normandie
+                        #Nouvelle-Aquitaine #Occitanie #Pays de la Loire
+                        #Provence-Alpes-Côte d’Azur
+TABLE = 'jobs'
 features = [
     {'name':'title', 
         'xpath':'//div[@data-jk="{}"]/*[@class="title"]', 
@@ -93,13 +98,14 @@ wait = WebDriverWait(driver, 60*5)
 c= 0
 for i in range(0, 2000, 10):
     driver.delete_all_cookies()
-    driver.get('https://www.indeed.fr/emplois?q={}&start={}'.format(QUERY, i))
+    driver.get('https://www.indeed.fr/emplois?q={}&l={}&start={}'.format(QUERY, LOCATION, i))
     for elem in driver.find_elements_by_class_name('jobsearch-SerpJobCard'):
         c+=1
         job = {'_id':elem.get_attribute('data-jk')}
         job_exist = db[TABLE].find_one(job)
         if not job_exist:
             job['query'] = [QUERY]
+            job['region'] = LOCATION
             for feature in features:
                 job.update({feature['name']:find_feature(job['_id'], feature, root='//div[@data-jk="{}"]/'.format(job['_id']))})
             print(job['company'])
