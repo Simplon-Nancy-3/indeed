@@ -5,7 +5,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import FunctionTransformer
 from sklearn.feature_extraction.text import CountVectorizer
 from datetime import datetime, timedelta
-import re
+import re, json
 
 class FeatureSelector(TransformerMixin, BaseEstimator):
     def __init__(self, names=None):
@@ -97,7 +97,7 @@ def transform_salary(X, target='salary',
         salary = str(x[i])
         salary_min_max = re.findall(r'([0-9 ]+)€', salary)
 
-        if len(salary_min_max) == 0:
+        if len(salary_min_max) == 0 or not salary_min_max[0][0].isnumeric():
             res[i, 0] = res[i, 1] = res[i, 2] = res[i, 3] = np.nan
         else:
             res[i, 0] = re.search(r'par ([a-z]+)', salary).groups()[0]
@@ -137,23 +137,39 @@ def transform_rating_count(X, target='rating_count', nan_value=0, keep_original=
     X[target] = X[target].apply(lambda x : int(x.split(' ')[0].replace(',', '')) if type(x) == str else nan_value)
     return X
 
-def transform_location(X, target='location', names=['location_dirty', 'dep'],  nan_value=np.nan, drop_target=False):
+def transform_location(X, target='location', names=['dep', 'region'],  nan_value=np.nan, drop_target=False):
+    dep_names, dep_regions, dep_nums = get_deps()
     x = X[target].to_numpy()
     res = np.empty((len(x), len(names)), dtype=object)
 
     for i in range(0, len(x)):
-        dep = re.search(r'\(([0-9]+)\)', str(x[i]))
+        str_ = str(x[i]).lower().strip()
+        dep = re.search(r'\(([^)]+)\)', str_)
         if dep != None:
-            res[i, 0] = x[i].split('(')[0]
-            res[i, 1] = dep.groups()[0]
-        else:
-            res[i, 0] = x[i]
-            res[i, 1] = np.nan
-    
+            res[i, 0] = dep.groups()[0]
+            # print('{} - {}'.format(str_, res[i, 0]))
+            res[i, 1] = dep_nums[res[i, 0]]
+        elif str_ in dep_names.keys():
+            res[i, 0] = dep_names[str_]
+            # print('{} - {}'.format(str_, res[i, 0]))
+            res[i, 1] = dep_nums[res[i, 0]]
+        elif str_ in dep_regions:
+            # print('{} - {}'.format(str_, res[i, 0]))
+            res[i, 1] = str_
     X[names[0]] = res[:, 0]
-    X[names[1]] = res[:, 1].astype(float)
+    X[names[1]] = res[:, 1]
 
     return X.drop(target, axis=1) if drop_target else X
+
+def get_deps(path='processing/deps.json'):
+    names, regions, nums = {}, [], {}
+    
+    with open(path, 'r', encoding='utf-8') as f:
+        for dep in json.loads(f.read()):
+            names[dep['dep_name']] = str(dep['num_dep']).zfill(2)
+            regions.append(dep['region_name'])
+            nums[str(dep['num_dep']).zfill(2)] = dep['region_name']
+    return names, set(regions), nums
 
 def transform_sponso(X, target='sponso', keep_original=False):
     if keep_original:
@@ -175,14 +191,6 @@ def band_numerical(X, target='salary_mean', name='salary_band', bands = [25000, 
     X[name] = res.astype(float)
     return X.drop(target, axis=1) if drop_target else X
 
-def vectorize_feature(X, target='title', vectorizer=CountVectorizer(), drop_target=False):
-    res = pd.concat([X, pd.DataFrame(
-        vectorizer.fit_transform(X[target]).toarray(), 
-        columns=vectorizer.get_feature_names())],
-        axis = 1
-    )
-    return res.drop(target, axis=1) if drop_target else res
-
 indeed_pl = Pipeline(
     steps=[
         ('salary_transformer', FunctionTransformer(transform_salary)),
@@ -203,37 +211,6 @@ indeed_pl = Pipeline(
         ('salary_bander', FunctionTransformer(band_numerical))
     ],
     verbose=1)
+# indeed_pl.fit_transform(pd.read_csv('csv/jobs_it.csv')).info()
 
-indeed_txt_pl = Pipeline(
-        steps=[
-        ('salary_transformer', FunctionTransformer(transform_salary)),
-        ('feature_selector', FeatureSelector(names=['salary_mean', 'title', 'summary', 'desc']))],
-    verbose=1)
 
-ml_pl_0 = Pipeline(
-    steps=[
-        ('salary_transformer', FunctionTransformer(transform_salary)),
-        ('salary_bander', FunctionTransformer(band_numerical)),
-        ('location_transformer', FunctionTransformer(transform_location)),
-        ('feature_selector', FeatureSelector(names=['salary_mean', 'salary_band', 'title', 'query', 'contract', 'dep'])),
-        ('query_transfomer', MultiCategoriesTransformer(
-            'query',
-            replace_key_value= {'devellopeur':'developpeur'},
-            drop_target=True,
-            clean_func=lambda x: x.replace('"', '').replace('[', '').replace(']', '').lower().strip())),
-        ('contract_transformer', MultiCategoriesTransformer(
-            'contract', 
-            replace_key_value={'freelance / indépendant':'indépendant'},
-            drop_key=['nan'],
-            drop_target=True,
-            clean_func=lambda x: x.lower().strip())),
-        ('title_vectorizer', FunctionTransformer(vectorize_feature))],
-    verbose=1
-).set_params(title_vectorizer__kw_args={'drop_target': True})
-
-# df = pd.read_csv('csv/jobs_it.csv')
-# df = ml_pl_0.fit_transform(df)
-# df.info()
-# for c in df.columns[:30]:
-#     print(c)
-# df.head()
