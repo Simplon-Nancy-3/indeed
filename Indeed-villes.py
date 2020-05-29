@@ -361,32 +361,69 @@ def ols_salaire(X, y):
     import statsmodels.api as sm
     from sklearn.model_selection import train_test_split
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.4, random_state=3)
-    model = sm.OLS(y_train, X_train).fit()
+    model = sm.OLS(y, X).fit()
     predictions = model.predict(X_test) # make the predictions by the model
-    #print(model.summary())
-    predictions = model.predict(X)
     
+    predictions = model.predict(X)
+    print(model.summary())
     return(predictions)
 
 
 print()
 print('full =>')
 X, y = full(df)
-sal=ols_salaire(X, y)
+ols_salaire(X, y)
 
 sal={}
+import matplotlib.pyplot as plt
 for i in regions :
     X, y = base(df, i)
     print()
     print(i,'=>')
-    sal[i]=ols_salaire(X, y)
+    sal[i]=[y, list(ols_salaire(X, y))]
+    
+    # Comparaison entre les valeurs réelles et prédites
+    xg = sal[i][0]
+    yg = sal[i][1]
+    plt.scatter(xg, yg, c = 'red')
+    plt.scatter(range(1,160000), range(1,160000), c = 'blue', s = 1)
+    plt.legend()
+    titre = 'Comparaison réel / prédit - ' + i
+    plt.title(titre)
+    plt.show()
+
+
+
+# Comparaison entre les valeurs réelles et prédites
+import matplotlib.pyplot as plt
+x = sal['Paris'][0]
+y = sal['Paris'][1]
+plt.scatter(x, y, c = 'red')
+plt.scatter(range(1,160000), range(1,160000), c = 'yellow', s = 1)
+plt.legend()
+plt.title('Comparaison réel / prédit - Paris')
+plt.show()
+
+# Ecarts
+(sum((x-y)**2/len(x)))**0.5
+   
+    
+    
 
 ## Ca me génère un dictionnaire
 for cle in sal.keys():
     print(cle)
 
-sal['Paris']
 
+"""
+dico={}
+dict_paris = sal['Paris'].to_dict()
+dict_lyon = sal['Lyon'].to_dict()
+dico.update(dict_lyon) # intégrer le distionnaire lyon dan sle dico
+"""
+
+print(list(dict_paris.values())
+print(dict_paris.keys())
 
     
 
