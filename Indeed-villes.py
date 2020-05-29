@@ -37,9 +37,10 @@ df_region = df.dropna(subset=['salary_mean'], axis=0)
 
 # =============================================================================
 # Nettoyage des départements manquants : ajout si utile, suppression sinon
-# Création des 5 regroupements
+# Création des 5 regroupements de départements
 # =============================================================================
 df.isna().sum()
+''' Intégré au script de scrapping de Pierre
 for i in range(len(df)):
     if pd.isna(df['dep'][i]):
         if df['location_dirty'][i] in ['Paris', 'Île-de-France']:
@@ -58,6 +59,7 @@ for i in range(len(df)):
         df['dep'][i]=69
     if df['location_dirty'][i][0:9] == 'Marseille':
         df['dep'][i]=13
+'''
 
 df.isna().sum()
 df = df.dropna(subset=['dep'], axis=0)
@@ -88,6 +90,7 @@ regions = ['Paris', 'Lyon', 'Bordeaux', 'Nantes', 'Toulouse']
 from sklearn.datasets import make_regression
 df = pd.concat([df,pd.get_dummies(df['region'])], axis=1)
 
+# Retourne le jeu de test suivant la région demandée
 def base(df, region):
     from sklearn.utils.validation import column_or_1d
     df_region = df[['salary_mean', 'query_developpeur', 'query_business+intelligence',
@@ -108,7 +111,7 @@ def base(df, region):
     #print(y.shape)
     return(X, y)
 
-
+# Retourne le jeu full avec les salaires absents par région
 def estime(df, region):
     from sklearn.utils.validation import column_or_1d
     df_region = df[['salary_mean', 'query_developpeur', 'query_business+intelligence',
@@ -150,7 +153,7 @@ pyplot.title('Salaire sur Paris')
 pyplot.show()
 '''
 
-
+# Retourne le dataset toutes régions confondues
 def full(df):
     from sklearn.utils.validation import column_or_1d
     df_full = df[['salary_mean', 'query_developpeur', 'query_business+intelligence',
@@ -178,7 +181,7 @@ for i in regions :
     print(i, y.shape)
 '''
 
-
+# Régression linéaire de base
 def reglin_salaire(df, region) :
     X, y = base(df, region)
     #X, y = full(df)
@@ -366,6 +369,7 @@ def ols_salaire(X, y):
     
     predictions = model.predict(X)
     print(model.summary())
+    print('R2: ', results.rsquared)
     return(predictions)
 
 
@@ -374,6 +378,7 @@ print('full =>')
 X, y = full(df)
 ols_salaire(X, y)
 
+# Génération des graphiques pour valider visuellement les prédictions
 sal={}
 import matplotlib.pyplot as plt
 for i in regions :
@@ -393,7 +398,7 @@ for i in regions :
     plt.show()
 
 
-
+'''
 # Comparaison entre les valeurs réelles et prédites
 import matplotlib.pyplot as plt
 x = sal['Paris'][0]
@@ -406,13 +411,7 @@ plt.show()
 
 # Ecarts
 (sum((x-y)**2/len(x)))**0.5
-   
-    
-    
-
-## Ca me génère un dictionnaire
-for cle in sal.keys():
-    print(cle)
+''' 
 
 
 """
@@ -421,9 +420,6 @@ dict_paris = sal['Paris'].to_dict()
 dict_lyon = sal['Lyon'].to_dict()
 dico.update(dict_lyon) # intégrer le distionnaire lyon dan sle dico
 """
-
-print(list(dict_paris.values())
-print(dict_paris.keys())
 
     
 
@@ -463,7 +459,7 @@ for i in regions :
     glsar_salaire(X, y)
 
 
-
+'''
 # =============================================================================
 # Modèle QuantileRegressor -- Pas trouvé comment ça fonctionne
 # =============================================================================
@@ -480,8 +476,9 @@ model.fit(X_train, y_train)
 model.predict(X_test)
 
 model.score(X_test, y_test)
+'''
 
-
+'''
 # =============================================================================
 # RecursiveLS - Moindres carrés récursifs -- nan en retour...
 # =============================================================================
@@ -494,7 +491,7 @@ mod = sm.RecursiveLS(y, X)
 res = mod.fit()
 
 print(res.summary())
-
+'''
 
 # =============================================================================
 # Weighted Least Squares
