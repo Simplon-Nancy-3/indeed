@@ -80,7 +80,7 @@ features = [
 client = MongoClient('mongodb://localhost:27017')
 db=client.indeed
 
-def find_feature(key, feature, root=''):
+def find_feature(key, feature):
     try:
         target = driver.find_element_by_xpath(feature['xpath'].format(key))
         feature['callback'](target)
@@ -107,8 +107,7 @@ for i in range(0, 2000, 10):
             job['query'] = [QUERY]
             job['region'] = LOCATION
             for feature in features:
-                job.update({feature['name']:find_feature(job['_id'], feature, root='//div[@data-jk="{}"]/'.format(job['_id']))})
-            print(job['company'])
+                job.update({feature['name']:find_feature(job['_id'], feature)})
             db[TABLE].insert_one(job)
         else:
             db[TABLE].update_one(job, {"$set":{"query":list(set(job_exist['query']+[QUERY]))}})
@@ -119,3 +118,4 @@ with open('errors.json', 'w') as f:
     f.write(json.dumps(features, default=lambda o: '<not serializable>'))
 
 client.close()
+

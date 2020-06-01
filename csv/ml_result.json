@@ -1,0 +1,4650 @@
+[{
+  "_id": 0,
+  "region": "île-de-france",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      18775.65734413255,
+      653536807.7759321,
+      25564.365976412013,
+      -0.12008763289684743,
+      -0.14956362323623829
+    ],
+    [
+      16928.331635530438,
+      597990467.485201,
+      24453.843613738944,
+      -0.024887533878615642,
+      -0.051858258454368755
+    ],
+    [
+      17351.38003770581,
+      601831902.2750845,
+      24532.262477706463,
+      -0.031471315464493,
+      -0.05861529745040084
+    ],
+    [
+      16886.372879355753,
+      589382298.0440574,
+      24277.197079647754,
+      -0.010134112161301667,
+      -0.03671658879712547
+    ],
+    [
+      16473.844564944513,
+      582028601.6192473,
+      24125.268943977542,
+      0.002469285724638892,
+      -0.023781522545765377
+    ],
+    [
+      16213.810761965458,
+      578868307.4610004,
+      24059.68219783878,
+      0.007885669868348932,
+      -0.01822260197722092
+    ],
+    [
+      15873.034207023853,
+      577342190.6032884,
+      24027.946033801734,
+      0.010501260296217785,
+      -0.01553818022230291
+    ]
+  ]
+},{
+  "_id": 1,
+  "region": "île-de-france",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      17835.34812053939,
+      628974876.997094,
+      25079.371543104786,
+      -0.07799128181438864,
+      -0.1063594734410831
+    ],
+    [
+      16619.89225560174,
+      596098442.300928,
+      24415.127325101705,
+      -0.021644818265939447,
+      -0.04853020822030629
+    ],
+    [
+      17189.69561980007,
+      597115642.3942096,
+      24435.949795213804,
+      -0.023388183339046353,
+      -0.05031945132165294
+    ],
+    [
+      16788.13075281403,
+      588403664.200372,
+      24257.033293467113,
+      -0.008456845246257227,
+      -0.0349951832790536
+    ],
+    [
+      16437.634025822386,
+      582966390.158627,
+      24144.696936566153,
+      0.0008620230077823754,
+      -0.025431081649907705
+    ],
+    [
+      16221.984891839984,
+      580747259.3997474,
+      24098.69829264119,
+      0.004665360309105915,
+      -0.02152765652486499
+    ],
+    [
+      15878.686747741236,
+      579564419.3212255,
+      24074.144207452642,
+      0.006692613446011686,
+      -0.019447054621198667
+    ]
+  ],
+  "params": {
+    "n_estimators": 1200,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 50,
+    "bootstrap": true
+  }
+},{
+  "_id": 2,
+  "region": "île-de-france",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      9628.400373499719,
+      181981100.2116619,
+      13490.037072286417,
+      0.6881051268378904,
+      0.6644441364600752
+    ],
+    [
+      8998.19959278719,
+      168180832.6895325,
+      12968.455293115387,
+      0.7117572131447183,
+      0.68989051896949
+    ],
+    [
+      8953.485370006754,
+      218687204.89917994,
+      14788.076443512859,
+      0.6251950452279161,
+      0.5967615659003788
+    ],
+    [
+      9352.709627209513,
+      162525065.41549313,
+      12748.531892555045,
+      0.7214505539065843,
+      0.700319216616739
+    ],
+    [
+      9141.262885796372,
+      155254616.47344095,
+      12460.121045697788,
+      0.733911275091232,
+      0.7137252338912565
+    ],
+    [
+      9659.18447762749,
+      189616306.73333177,
+      13770.123700727303,
+      0.6750192527175947,
+      0.6503655408547915
+    ],
+    [
+      8974.565549811843,
+      164036309.43449643,
+      12807.666041652416,
+      0.7188604538298411,
+      0.6975326261893463
+    ]
+  ],
+  "params": {
+    "n_estimators": 1200,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 50,
+    "bootstrap": true
+  }
+},{
+  "_id": 3,
+  "region": "île-de-france",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      10427.866344017766,
+      196405701.90154228,
+      14014.481863470453,
+      0.6633830028961929,
+      0.6378465410469386
+    ],
+    [
+      8353.006356223257,
+      131685314.95983285,
+      11475.422212704543,
+      0.7743063727005783,
+      0.7571847871813119
+    ],
+    [
+      8329.837154388606,
+      127229135.88717146,
+      11279.58934922595,
+      0.7819437559510304,
+      0.7654015581266258
+    ],
+    [
+      8484.856517935024,
+      125628724.68833676,
+      11208.422042746997,
+      0.7846866784154357,
+      0.7683525643641929
+    ],
+    [
+      8399.689156655682,
+      122243945.70922369,
+      11056.398405865433,
+      0.7904878039671791,
+      0.7745937753026203
+    ],
+    [
+      8559.448099317346,
+      130640214.0124736,
+      11429.79501183086,
+      0.7760975566589075,
+      0.7591118540606177
+    ],
+    [
+      8097.581364638833,
+      120234626.97397919,
+      10965.155127675083,
+      0.7939315473632923,
+      0.778298768197749
+    ]
+  ],
+  "params": {
+    "n_estimators": 400,
+    "min_samples_split": 10,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 30,
+    "bootstrap": true
+  }
+},{
+  "_id": 4,
+  "region": "île-de-france",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      10274.223281588005,
+      205609526.73877835,
+      14339.090861654317,
+      0.6476086956913392,
+      0.6101202590627581
+    ],
+    [
+      8673.702156526286,
+      155883114.41804162,
+      12485.315951870887,
+      0.7328341012172095,
+      0.7044121970913807
+    ],
+    [
+      8662.459617654806,
+      219559206.03337932,
+      14817.5303621548,
+      0.6237005346285627,
+      0.5836686766103246
+    ],
+    [
+      9238.122801297388,
+      159304385.84443766,
+      12621.584125791725,
+      0.7269704317683061,
+      0.6979247330202536
+    ],
+    [
+      8814.974400289319,
+      146472207.22450757,
+      12102.570273479414,
+      0.748963323988441,
+      0.7222572946255092
+    ],
+    [
+      9393.619095812703,
+      182929029.5524673,
+      13525.125860873432,
+      0.6864804839427037,
+      0.6531273439366083
+    ],
+    [
+      8761.964899950231,
+      156081346.59748015,
+      12493.25204250199,
+      0.7324943538456928,
+      0.7040363063824686
+    ]
+  ],
+  "params": {
+    "n_estimators": 400,
+    "min_samples_split": 10,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 30,
+    "bootstrap": true
+  }
+},{
+  "_id": 5,
+  "region": "île-de-france",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      10577.874279648162,
+      233981764.70688713,
+      15296.462489964375,
+      0.5989819121841725,
+      0.556320413480361
+    ],
+    [
+      9331.618878361516,
+      195138408.1457054,
+      13969.19497128254,
+      0.6655550000144439,
+      0.6299757446968315
+    ],
+    [
+      8681.40504158421,
+      179353694.86614734,
+      13392.299834835962,
+      0.6926082002671179,
+      0.6599069449763857
+    ],
+    [
+      9123.014047780274,
+      185537529.6301076,
+      13621.21615826236,
+      0.6820098119887881,
+      0.64818106858334
+    ],
+    [
+      9063.062787501198,
+      183299642.91779637,
+      13538.819849521464,
+      0.6858452948574797,
+      0.6524245815444456
+    ],
+    [
+      9088.535156407388,
+      184529682.9261361,
+      13584.17030687322,
+      0.6837371464182229,
+      0.6500921619946296
+    ],
+    [
+      8518.240216281694,
+      177516763.61292908,
+      13323.541706803378,
+      0.6957564911586646,
+      0.663390160430863
+    ]
+  ],
+  "params": {
+    "n_estimators": 600,
+    "min_samples_split": 2,
+    "min_samples_leaf": 4,
+    "max_features": "auto",
+    "max_depth": null,
+    "bootstrap": false
+  }
+},{
+  "_id": 6,
+  "region": "auvergne-rhône-alpes",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      6.95289785618474e-310,
+      6.95289785618474e-310,
+      6.95289785618474e-310,
+      6.95289785618474e-310,
+      6.95289785618474e-310
+    ],
+    [
+      7324.682374338624,
+      215066751.50332424,
+      14665.15432933879,
+      -0.03079907141287097,
+      -0.11494593438535028
+    ],
+    [
+      7243.9087825831675,
+      200699478.29272112,
+      14166.844330785918,
+      0.03806220900683077,
+      -0.04046332495179539
+    ]
+  ],
+  "params": {
+    "n_estimators": 600,
+    "min_samples_split": 2,
+    "min_samples_leaf": 4,
+    "max_features": "auto",
+    "max_depth": null,
+    "bootstrap": false
+  }
+},{
+  "_id": 7,
+  "region": "auvergne-rhône-alpes",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      8094.940166692077,
+      1780.887509077923,
+      -1695.223461966691,
+      -3693.553485132865,
+      -23805.56196917759
+    ],
+    [
+      7276.390638610932,
+      217290736.13529423,
+      14740.784786953991,
+      -0.041458465658827715,
+      -0.12647548326363012
+    ],
+    [
+      7252.680792497663,
+      207122107.1994652,
+      14391.73746284531,
+      0.007279022545770952,
+      -0.07375942459334994
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 5,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 50,
+    "bootstrap": true
+  }
+},{
+  "_id": 8,
+  "region": "auvergne-rhône-alpes",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      8094.940166692077,
+      1780.887509077923,
+      -1695.223461966691,
+      -3693.553485132865,
+      -23805.56196917759
+    ],
+    [
+      6743.36130310913,
+      180617482.81675762,
+      13439.400389033643,
+      0.13431373158781268,
+      -0.09241362442490297
+    ],
+    [
+      6512.743009528263,
+      144392720.02155292,
+      12016.352192805973,
+      0.3079363468476678,
+      0.12668158054586653
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 5,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 50,
+    "bootstrap": true
+  }
+},{
+  "_id": 9,
+  "region": "auvergne-rhône-alpes",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      8094.940166692077,
+      1780.887509077923,
+      -1695.223461966691,
+      -3693.553485132865,
+      -23805.56196917759
+    ],
+    [
+      6919.068862085787,
+      188141085.71713993,
+      13716.453102647927,
+      0.09825365800980368,
+      -0.13791800298762857
+    ],
+    [
+      6483.229915577442,
+      147687130.05177596,
+      12152.659381870948,
+      0.29214648264843723,
+      0.10675627572302793
+    ]
+  ],
+  "params": {
+    "n_estimators": 1200,
+    "min_samples_split": 5,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": 50,
+    "bootstrap": false
+  }
+},{
+  "_id": 10,
+  "region": "auvergne-rhône-alpes",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      6909.868082909351,
+      176423281.61059588,
+      13282.442607088347,
+      0.1544162285028854,
+      -0.17936683919334406
+    ],
+    [
+      6954.940218551242,
+      138501503.6452025,
+      11768.666179529542,
+      0.33617251226043476,
+      0.07413534604744854
+    ]
+  ],
+  "params": {
+    "n_estimators": 1200,
+    "min_samples_split": 5,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": 50,
+    "bootstrap": false
+  }
+},{
+  "_id": 11,
+  "region": "auvergne-rhône-alpes",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      6.95289785618474e-310,
+      6.95289785618474e-310,
+      6.95289785618474e-310,
+      6.95289785618474e-310,
+      6.95289785618474e-310
+    ],
+    [
+      7390.968811425817,
+      194322617.23576733,
+      13939.964750162295,
+      0.068626033540793,
+      -0.2990215847983675
+    ],
+    [
+      7015.176621372398,
+      137109425.41454136,
+      11709.373399740114,
+      0.3428446405065222,
+      0.08344120912751785
+    ]
+  ],
+  "params": {
+    "n_estimators": 600,
+    "min_samples_split": 5,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": null,
+    "bootstrap": false
+  }
+},{
+  "_id": 12,
+  "region": "pays de la loire",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      6.230420704259778e-307,
+      5.1179822353518254e-307,
+      1.3796136972795362e-306,
+      4.227952694901959e-307,
+      9.346097902483547e-307
+    ],
+    [
+      6428.528985507244,
+      80272884.14006661,
+      8959.513610685939,
+      -0.02470039289403192,
+      -0.13547881374744075
+    ]
+  ],
+  "params": {
+    "n_estimators": 600,
+    "min_samples_split": 5,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": null,
+    "bootstrap": false
+  }
+},{
+  "_id": 13,
+  "region": "pays de la loire",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      6397.614463861867,
+      79822816.08770227,
+      8934.361537776624,
+      -0.018955178740743595,
+      -0.1291124953613645
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 10,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "max_depth": 40,
+    "bootstrap": true
+  }
+},{
+  "_id": 14,
+  "region": "pays de la loire",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      5461.42532947764,
+      52206258.14473061,
+      7225.389826488991,
+      0.333576041206032,
+      0.08922058964824375
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 10,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "max_depth": 40,
+    "bootstrap": true
+  }
+},{
+  "_id": 15,
+  "region": "pays de la loire",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      6140.301409067742,
+      76605112.51334064,
+      8752.434662043506,
+      0.022119489899686928,
+      -0.33643669713709445
+    ]
+  ],
+  "params": {
+    "n_estimators": 1600,
+    "min_samples_split": 2,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 50,
+    "bootstrap": false
+  }
+},{
+  "_id": 16,
+  "region": "pays de la loire",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      5656.073856692896,
+      53784175.395796455,
+      7333.769521589594,
+      0.3134335928009123,
+      -0.08266241135240748
+    ]
+  ],
+  "params": {
+    "n_estimators": 1600,
+    "min_samples_split": 2,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 50,
+    "bootstrap": false
+  }
+},{
+  "_id": 17,
+  "region": "pays de la loire",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      6158.144572730713,
+      76978502.2298181,
+      8773.739352739976,
+      0.017353090968393436,
+      -0.5495585873190718
+    ]
+  ],
+  "params": {
+    "n_estimators": 1800,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": null,
+    "bootstrap": true
+  }
+},{
+  "_id": 18,
+  "region": "occitanie",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      8248.06990532734,
+      195980176.5689679,
+      13999.292002418118,
+      -1.2936103190804715,
+      -1.5557372126896682
+    ]
+  ],
+  "params": {
+    "n_estimators": 1800,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": null,
+    "bootstrap": true
+  }
+},{
+  "_id": 19,
+  "region": "occitanie",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      6444.063059571965,
+      84114682.41900046,
+      9171.405694821295,
+      0.015582560644836652,
+      -0.09692228956718196
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 2,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 70,
+    "bootstrap": true
+  }
+},{
+  "_id": 20,
+  "region": "occitanie",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      6966.135138888885,
+      86125802.03047706,
+      9280.398807727881,
+      -0.007954129517112385,
+      -0.40393610897026355
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 2,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 70,
+    "bootstrap": true
+  }
+},{
+  "_id": 21,
+  "region": "occitanie",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      6701.6764694273925,
+      80793103.7367146,
+      8988.498413901769,
+      0.05445591648471948,
+      -0.31700783061056925
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 10,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": 40,
+    "bootstrap": true
+  }
+},{
+  "_id": 22,
+  "region": "occitanie",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      6894.346618222442,
+      90032889.93742463,
+      9488.566274070316,
+      -0.05367986207749653,
+      -0.712229775875932
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 10,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": 40,
+    "bootstrap": true
+  }
+},{
+  "_id": 23,
+  "region": "occitanie",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      6345.021165842275,
+      77378267.1367938,
+      8796.491751647005,
+      0.09442069557958732,
+      -0.47156636968317067
+    ]
+  ],
+  "params": {
+    "n_estimators": 1000,
+    "min_samples_split": 10,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "max_depth": 60,
+    "bootstrap": false
+  }
+},{
+  "_id": 24,
+  "region": "nouvelle-aquitaine",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      13595.228846153845,
+      401596017.3508105,
+      20039.86071186151,
+      -0.0016494887697269256,
+      -0.11612371605769578
+    ]
+  ],
+  "params": {
+    "n_estimators": 1000,
+    "min_samples_split": 10,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "max_depth": 60,
+    "bootstrap": false
+  }
+},{
+  "_id": 25,
+  "region": "nouvelle-aquitaine",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      13890.885,
+      425041036.96297836,
+      20616.523396610264,
+      -0.060125397130666114,
+      -0.18128258537417086
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 2,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 30,
+    "bootstrap": false
+  }
+},{
+  "_id": 26,
+  "region": "nouvelle-aquitaine",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      8839.790672354484,
+      140962154.07241353,
+      11872.748379057544,
+      0.6484161608625386,
+      0.5102939383442502
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 2,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 30,
+    "bootstrap": false
+  }
+},{
+  "_id": 27,
+  "region": "nouvelle-aquitaine",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      8416.268820702751,
+      115453095.0005461,
+      10744.910190436498,
+      0.712040138378264,
+      0.5989130498840105
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 5,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": 90,
+    "bootstrap": true
+  }
+},{
+  "_id": 28,
+  "region": "nouvelle-aquitaine",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      9301.648058716206,
+      156662771.10431075,
+      12516.499954232842,
+      0.6092561235516323,
+      0.36504120077140245
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 5,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": 90,
+    "bootstrap": true
+  }
+},{
+  "_id": 29,
+  "region": "nouvelle-aquitaine",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      9210.825867673275,
+      138916353.52848235,
+      11786.278188150929,
+      0.6535187390267128,
+      0.43696795091840823
+    ]
+  ],
+  "params": {
+    "n_estimators": 1600,
+    "min_samples_split": 2,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": 70,
+    "bootstrap": true
+  }
+},{
+  "_id": 30,
+  "region": "provence-alpes-côte d'azur",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      7852.273474178404,
+      108914702.92910081,
+      10436.220720600959,
+      0.0016955568727777814,
+      -0.12711791965976715
+    ]
+  ],
+  "params": {
+    "n_estimators": 1600,
+    "min_samples_split": 2,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": 70,
+    "bootstrap": true
+  }
+},{
+  "_id": 31,
+  "region": "provence-alpes-côte d'azur",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      8021.480324897352,
+      110141866.73854809,
+      10494.849533868892,
+      -0.009552539577649233,
+      -0.1398173833941203
+    ]
+  ],
+  "params": {
+    "n_estimators": 800,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 20,
+    "bootstrap": true
+  }
+},{
+  "_id": 32,
+  "region": "provence-alpes-côte d'azur",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      7074.140355573404,
+      95847063.76019105,
+      9790.151365540323,
+      0.12147261077520666,
+      -0.28118577595282357
+    ]
+  ],
+  "params": {
+    "n_estimators": 800,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 20,
+    "bootstrap": true
+  }
+},{
+  "_id": 33,
+  "region": "provence-alpes-côte d'azur",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      6793.013797514571,
+      87157391.14102009,
+      9335.81229144096,
+      0.201121533755664,
+      -0.1650310966063233
+    ]
+  ],
+  "params": {
+    "n_estimators": 1000,
+    "min_samples_split": 2,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": 90,
+    "bootstrap": false
+  }
+},{
+  "_id": 34,
+  "region": "provence-alpes-côte d'azur",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      6312.689971226342,
+      80300386.37901485,
+      8961.04828572053,
+      0.2639723531249315,
+      -0.28804838203136995
+    ]
+  ],
+  "params": {
+    "n_estimators": 1000,
+    "min_samples_split": 2,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": 90,
+    "bootstrap": false
+  }
+},{
+  "_id": 35,
+  "region": "provence-alpes-côte d'azur",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      6811.529242009906,
+      83333188.75088276,
+      9128.701372642374,
+      0.2361739016621075,
+      -0.3366956720913119
+    ]
+  ],
+  "params": {
+    "n_estimators": 1600,
+    "min_samples_split": 10,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": null,
+    "bootstrap": true
+  }
+},{
+  "_id": 36,
+  "region": "hauts-de-france",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      8479.977176796217,
+      236041100.761684,
+      15363.629153350585,
+      0.005366575167386922,
+      -0.16040566230471542
+    ]
+  ],
+  "params": {
+    "n_estimators": 1600,
+    "min_samples_split": 10,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": null,
+    "bootstrap": true
+  }
+},{
+  "_id": 37,
+  "region": "hauts-de-france",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      8251.876627302623,
+      235129347.1163811,
+      15333.927974148733,
+      0.009208535944153606,
+      -0.15592337473182094
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 2,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "max_depth": 30,
+    "bootstrap": true
+  }
+},{
+  "_id": 38,
+  "region": "hauts-de-france",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      4784.964936024803,
+      104217037.1361894,
+      10208.67460232666,
+      0.5608487325377607,
+      0.2766920300621941
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 2,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "max_depth": 30,
+    "bootstrap": true
+  }
+},{
+  "_id": 39,
+  "region": "hauts-de-france",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      4728.491886409836,
+      104696911.7492225,
+      10232.15088577287,
+      0.5588266299110946,
+      0.2733615080888616
+    ]
+  ],
+  "params": {
+    "n_estimators": 2000,
+    "min_samples_split": 2,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 10,
+    "bootstrap": false
+  }
+},{
+  "_id": 40,
+  "region": "hauts-de-france",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      5049.237335240773,
+      98448270.61002621,
+      9922.110189371322,
+      0.5851572448623601,
+      0.10649252739585258
+    ]
+  ],
+  "params": {
+    "n_estimators": 2000,
+    "min_samples_split": 2,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 10,
+    "bootstrap": false
+  }
+},{
+  "_id": 41,
+  "region": "hauts-de-france",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      2.121995791e-314,
+      6.365987374e-314,
+      1.0609978957e-313,
+      1.48539705397e-313,
+      1.90979621226e-313
+    ],
+    [
+      4787.5605178731485,
+      95050375.7901419,
+      9749.3782258225,
+      0.5994753434944062,
+      0.137331509064875
+    ]
+  ],
+  "params": {
+    "n_estimators": 1400,
+    "min_samples_split": 5,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 90,
+    "bootstrap": false
+  }
+},{
+  "_id": 42,
+  "region": "bretagne",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      13807.836874999997,
+      329151313.72133577,
+      18142.52776548339,
+      -0.15566282969234857,
+      -0.4638395842769747
+    ]
+  ],
+  "params": {
+    "n_estimators": 1400,
+    "min_samples_split": 5,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 90,
+    "bootstrap": false
+  }
+},{
+  "_id": 43,
+  "region": "bretagne",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      12136.793250000002,
+      291532604.84459734,
+      17074.32589722351,
+      -0.023582106518718948,
+      -0.2965373349237106
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "auto",
+    "max_depth": 100,
+    "bootstrap": true
+  }
+},{
+  "_id": 44,
+  "region": "bretagne",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      13698.761666666664,
+      422428044.66682637,
+      20553.054387774737,
+      -0.48316099340977936,
+      -2.522507359348226
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "auto",
+    "max_depth": 100,
+    "bootstrap": true
+  }
+},{
+  "_id": 45,
+  "region": "bretagne",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      12190.788143825963,
+      302344548.0505837,
+      17388.057627307993,
+      -0.061543251922141495,
+      -1.5211652233150859
+    ]
+  ],
+  "params": {
+    "n_estimators": 2000,
+    "min_samples_split": 2,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 70,
+    "bootstrap": false
+  }
+},{
+  "_id": 46,
+  "region": "bretagne",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      14441.290740740737,
+      454362958.2452844,
+      21315.791288274624,
+      -0.59528569428005,
+      -6.577607047830237
+    ]
+  ],
+  "params": {
+    "n_estimators": 2000,
+    "min_samples_split": 2,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 70,
+    "bootstrap": false
+  }
+},{
+  "_id": 47,
+  "region": "bretagne",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      12153.892515085025,
+      299024480.78948104,
+      17292.324331606815,
+      -0.049886369006027165,
+      -3.986960252778629
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": null,
+    "bootstrap": false
+  }
+},{
+  "_id": 48,
+  "region": "grand est",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      8507.916666666664,
+      205720533.28549385,
+      14342.96110590466,
+      -0.15915589752457948,
+      -0.5158192506090655
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": null,
+    "bootstrap": false
+  }
+},{
+  "_id": 49,
+  "region": "grand est",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      7941.078175925912,
+      184803682.9864547,
+      13594.251836215728,
+      -0.04129750976645452,
+      -0.3616967435407483
+    ]
+  ],
+  "params": {
+    "n_estimators": 600,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "auto",
+    "max_depth": 80,
+    "bootstrap": true
+  }
+},{
+  "_id": 50,
+  "region": "grand est",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      6214.767429193905,
+      68876158.28809974,
+      8299.166120044816,
+      0.6119094005667884,
+      -0.09959003172743275
+    ]
+  ],
+  "params": {
+    "n_estimators": 600,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "auto",
+    "max_depth": 80,
+    "bootstrap": true
+  }
+},{
+  "_id": 51,
+  "region": "grand est",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      6150.738741830007,
+      65884975.717823625,
+      8116.9560623317175,
+      0.6287635612163553,
+      -0.05183657655365992
+    ]
+  ],
+  "params": {
+    "n_estimators": 400,
+    "min_samples_split": 2,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 70,
+    "bootstrap": false
+  }
+},{
+  "_id": 52,
+  "region": "grand est",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      7005.294191919196,
+      96489822.15863182,
+      9822.923300048302,
+      0.45631705002894496,
+      -3.621305074753968
+    ]
+  ],
+  "params": {
+    "n_estimators": 400,
+    "min_samples_split": 2,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 70,
+    "bootstrap": false
+  }
+},{
+  "_id": 53,
+  "region": "grand est",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      7015.465385059267,
+      76001419.78710264,
+      8717.879317076065,
+      0.5717612988869624,
+      -2.6400289594608197
+    ]
+  ],
+  "params": {
+    "n_estimators": 1600,
+    "min_samples_split": 10,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": 20,
+    "bootstrap": true
+  }
+},{
+  "_id": 54,
+  "region": "full",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      12354.104503105593,
+      370902624.0826741,
+      19258.83236550633,
+      -0.056562296106632326,
+      -0.06585075585262468
+    ],
+    [
+      14131.708696857897,
+      448156484.10791934,
+      21169.706755359635,
+      -0.2766295332507396,
+      -0.2878526500265701
+    ],
+    [
+      12671.146859595767,
+      374642794.52825105,
+      19355.69152802997,
+      -0.06721663721188187,
+      -0.07659876149506317
+    ],
+    [
+      12119.948872588353,
+      344965373.23245007,
+      18573.243476368098,
+      0.017323191710509556,
+      0.008684274714558016
+    ],
+    [
+      11908.291968249274,
+      328691970.8569976,
+      18129.864060632048,
+      0.06368000415366626,
+      0.05544861957479741
+    ],
+    [
+      11555.260016972785,
+      319676270.24207616,
+      17879.493008530084,
+      0.08936234966489165,
+      0.0813567439476599
+    ],
+    [
+      11486.722086540685,
+      318814686.7944903,
+      17855.382572056256,
+      0.09181667736861243,
+      0.0838326481586662
+    ],
+    [
+      11429.612584868255,
+      318091259.2884529,
+      17835.11309996247,
+      0.09387745067464082,
+      0.08591153815309927
+    ],
+    [
+      11413.234416517034,
+      318140700.107295,
+      17836.49909896264,
+      0.09373661234758313,
+      0.08576946168690258
+    ],
+    [
+      11318.922566754602,
+      318511873.6496989,
+      17846.90095365856,
+      0.09267927830691336,
+      0.08470283240191923
+    ],
+    [
+      11310.75519922168,
+      319087413.7672958,
+      17863.018047555564,
+      0.09103978063645723,
+      0.08304892156512944
+    ],
+    [
+      11315.921627627393,
+      319030277.9546301,
+      17861.41869938192,
+      0.0912025391113247,
+      0.08321311088373196
+    ],
+    [
+      11306.178507669703,
+      318696401.496363,
+      17852.069949906734,
+      0.09215362776494385,
+      0.08417256075628399
+    ],
+    [
+      11319.95065975896,
+      318531328.60129327,
+      17847.445996592713,
+      0.0926238584554685,
+      0.08464692534298912
+    ],
+    [
+      11381.299311202052,
+      319327542.6928666,
+      17869.73818198987,
+      0.09035574349978215,
+      0.08235887091516492
+    ],
+    [
+      11417.525961553496,
+      319815212.2202097,
+      17883.37809867615,
+      0.08896655614413818,
+      0.08095747092342731
+    ],
+    [
+      11471.728740004839,
+      320041107.5832529,
+      17889.69277498227,
+      0.08832306508217269,
+      0.08030832279718081
+    ],
+    [
+      11504.7795293836,
+      320214051.26965696,
+      17894.52573469487,
+      0.08783041346274523,
+      0.07981134017450564
+    ],
+    [
+      11549.320947411778,
+      320681189.3338245,
+      17907.573518872527,
+      0.08649971253579347,
+      0.07846894077786637
+    ],
+    [
+      11538.379093293966,
+      320568444.30504686,
+      17904.42527156476,
+      0.086820880785208,
+      0.07879293248441865
+    ],
+    [
+      11507.012902223722,
+      319933782.89211875,
+      17886.692899810147,
+      0.08862879282506497,
+      0.08061673825649418
+    ]
+  ],
+  "params": {
+    "n_estimators": 1600,
+    "min_samples_split": 10,
+    "min_samples_leaf": 1,
+    "max_features": "auto",
+    "max_depth": 20,
+    "bootstrap": true
+  }
+},{
+  "_id": 55,
+  "region": "full",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      11909.10665079105,
+      348856301.93045396,
+      18677.69530564341,
+      0.006239396956245868,
+      -0.0024969599935893427
+    ],
+    [
+      12073.255635201567,
+      333070490.43301105,
+      18250.21891465993,
+      0.05120724608617566,
+      0.04286621088693332
+    ],
+    [
+      11738.285186851206,
+      329649623.49840295,
+      18156.2557675971,
+      0.06095201139228246,
+      0.05269664445946742
+    ],
+    [
+      11650.341361891109,
+      325339550.9980637,
+      18037.171369093983,
+      0.07322978944415592,
+      0.06508235902168702
+    ],
+    [
+      11652.223222645634,
+      323401876.72186834,
+      17983.37778955523,
+      0.07874949582915935,
+      0.07065059029798715
+    ],
+    [
+      11481.817955160566,
+      320785781.7741794,
+      17910.493621734142,
+      0.08620176794936707,
+      0.07816837689837253
+    ],
+    [
+      11423.47841323951,
+      321004932.69176275,
+      17916.6105246434,
+      0.08557748927986875,
+      0.07753861006474672
+    ],
+    [
+      11395.441973469666,
+      319426959.2162084,
+      17872.519666130134,
+      0.09007254315728608,
+      0.08207318089932814
+    ],
+    [
+      11389.849990236306,
+      319066459.15676033,
+      17862.431501807372,
+      0.09109947245307926,
+      0.08310913814497445
+    ],
+    [
+      11305.7646984423,
+      319219810.21710217,
+      17866.7235445423,
+      0.09066263286795662,
+      0.08266845821185076
+    ],
+    [
+      11305.347992434256,
+      319901208.03007215,
+      17885.782287338516,
+      0.08872158637465077,
+      0.08071034757354878
+    ],
+    [
+      11312.645875570817,
+      319810536.2594918,
+      17883.247363370327,
+      0.08897987620032488,
+      0.08097090807900909
+    ],
+    [
+      11304.071724968611,
+      319443839.3404724,
+      17872.991896727093,
+      0.09002445802201631,
+      0.08202467303759453
+    ],
+    [
+      11344.681845614608,
+      319134496.494872,
+      17864.335881718973,
+      0.09090565962591457,
+      0.08291362146877979
+    ],
+    [
+      11395.97238588496,
+      320254758.7972617,
+      17895.663128178898,
+      0.08771445300293113,
+      0.07969436028207777
+    ],
+    [
+      11436.214047363537,
+      320687821.92647415,
+      17907.758707512065,
+      0.08648081876997993,
+      0.07844988091301275
+    ],
+    [
+      11484.54277782907,
+      320740685.77750653,
+      17909.234650802544,
+      0.08633022950961544,
+      0.07829796779101872
+    ],
+    [
+      11516.96074814403,
+      320938480.42093617,
+      17914.755940869978,
+      0.0857667868455565,
+      0.07772957178485818
+    ],
+    [
+      11547.026039831802,
+      321519789.2033035,
+      17930.972901750298,
+      0.08411085641539573,
+      0.07605908372454206
+    ],
+    [
+      11522.446204761674,
+      320706142.9803144,
+      17908.270239761136,
+      0.08642862896743975,
+      0.07839723229902162
+    ],
+    [
+      11484.699849336983,
+      320157674.10289,
+      17892.950402404014,
+      0.08799101084033079,
+      0.07997334939716894
+    ]
+  ],
+  "params": {
+    "n_estimators": 400,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": null,
+    "bootstrap": true
+  }
+},{
+  "_id": 56,
+  "region": "full",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      10583.63294100425,
+      243422789.8960295,
+      15602.012366872086,
+      0.30657988076163245,
+      0.2895539403339047
+    ],
+    [
+      10326.936163140092,
+      260016572.67596883,
+      16125.029385274584,
+      0.25931042485409095,
+      0.2411238504643477
+    ],
+    [
+      10261.240217708724,
+      256303796.76649278,
+      16009.49083408004,
+      0.2698867292130782,
+      0.2519598408678636
+    ],
+    [
+      11531.3888071992,
+      364501585.38087696,
+      19091.924611753446,
+      -0.03832814053826761,
+      -0.06382280470326962
+    ],
+    [
+      10625.800337032451,
+      277599555.09568936,
+      16661.31912831902,
+      0.20922311063319843,
+      0.18980671379606717
+    ],
+    [
+      9661.767363914225,
+      215071213.9418816,
+      14665.306472824957,
+      0.38734287418191926,
+      0.3722999536819218
+    ],
+    [
+      9660.627299992657,
+      221451415.94206887,
+      14881.243763276942,
+      0.36916807455192413,
+      0.3536788978110116
+    ],
+    [
+      9708.00805616629,
+      222743166.4359635,
+      14924.582621834472,
+      0.36548836246791905,
+      0.34990883565351527
+    ],
+    [
+      9765.43902791598,
+      221558542.5929538,
+      14884.842713074055,
+      0.3688629109513346,
+      0.3533662413541576
+    ],
+    [
+      9741.260308978593,
+      218980917.414752,
+      14798.003832096814,
+      0.3762055971442909,
+      0.3608892167170302
+    ],
+    [
+      9693.174298576538,
+      208565932.97052538,
+      14441.81196978154,
+      0.40587397683160775,
+      0.3912860610841695
+    ],
+    [
+      9697.654085549939,
+      208179407.5803168,
+      14428.423599975044,
+      0.40697504252180694,
+      0.39241416186944056
+    ],
+    [
+      9629.509574853608,
+      208211310.79814878,
+      14429.529126002302,
+      0.4068841622343755,
+      0.3923210501463803
+    ],
+    [
+      9638.097070619506,
+      208166000.60571063,
+      14427.958989604545,
+      0.4070132339579253,
+      0.39245329104171367
+    ],
+    [
+      9682.484840873569,
+      211538669.84148994,
+      14544.369008021282,
+      0.3974057657967701,
+      0.38260992522481585
+    ],
+    [
+      9676.136634474677,
+      210706601.46324596,
+      14515.736338995895,
+      0.3997760161513193,
+      0.385038373690749
+    ],
+    [
+      9696.172050026731,
+      211585169.92112705,
+      14545.9674797219,
+      0.3972733045314123,
+      0.38247421156231753
+    ],
+    [
+      9742.119196683245,
+      215292359.81487107,
+      14672.844298733326,
+      0.38671291263360674,
+      0.3716545243277355
+    ],
+    [
+      9681.965095991836,
+      214477836.8104818,
+      14645.061857516403,
+      0.38903318280661414,
+      0.37403176542016947
+    ],
+    [
+      9670.043808254057,
+      216350211.34913218,
+      14708.848063296193,
+      0.3836994908527738,
+      0.3685671122799624
+    ],
+    [
+      9607.088524383667,
+      196694072.5089876,
+      14024.766397661944,
+      0.4396924492118518,
+      0.4259348977416071
+    ]
+  ],
+  "params": {
+    "n_estimators": 400,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": null,
+    "bootstrap": true
+  }
+},{
+  "_id": 57,
+  "region": "full",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      11312.2977715807,
+      276863148.58841693,
+      16639.20516696687,
+      0.2113208562399218,
+      0.19195596654938418
+    ],
+    [
+      9953.451759905105,
+      196007085.35508072,
+      14000.253046108872,
+      0.44164941763859933,
+      0.4279399167324043
+    ],
+    [
+      9326.493220337828,
+      186397277.17351034,
+      13652.73881583876,
+      0.4690241525102542,
+      0.4559867991120685
+    ],
+    [
+      9414.069537652453,
+      185929160.88672963,
+      13635.584361762045,
+      0.4703576400260926,
+      0.45735302850887616
+    ],
+    [
+      9338.805774346813,
+      182941681.6860694,
+      13525.593579805265,
+      0.4788678464222512,
+      0.46607219086565477
+    ],
+    [
+      9274.583983916666,
+      182258913.66306266,
+      13500.330131632436,
+      0.48081279612941585,
+      0.4680648960343792
+    ],
+    [
+      9153.962230632733,
+      183217588.44817972,
+      13535.789169759542,
+      0.4780818916644287,
+      0.4652669381115464
+    ],
+    [
+      9193.92825441331,
+      182981630.51095223,
+      13527.070285577443,
+      0.47875404722158676,
+      0.46595559748818827
+    ],
+    [
+      9234.728517237849,
+      182610858.51060158,
+      13513.358520760174,
+      0.47981023741973217,
+      0.46703772092780593
+    ],
+    [
+      9278.930930842162,
+      182800846.07588646,
+      13520.386313855328,
+      0.4792690341896241,
+      0.4664832292255301
+    ],
+    [
+      9311.283118494352,
+      183467463.81327242,
+      13545.01619833924,
+      0.4773700905815008,
+      0.4645376597698859
+    ],
+    [
+      9328.795091614824,
+      182912049.0057846,
+      13524.498105504123,
+      0.47895225880083425,
+      0.4661586758696048
+    ],
+    [
+      9269.863854306972,
+      183721479.27298623,
+      13554.389668036929,
+      0.4766464959236696,
+      0.4637962982789383
+    ],
+    [
+      9308.725545432728,
+      184850228.85792476,
+      13595.963697286219,
+      0.4734311122198158,
+      0.4605019654216417
+    ],
+    [
+      9376.637118016419,
+      188147596.00967824,
+      13716.690417505173,
+      0.4640381514189057,
+      0.45087837388678065
+    ],
+    [
+      9365.62409947761,
+      187010463.8084325,
+      13675.176920553258,
+      0.4672774140488115,
+      0.45419717198304577
+    ],
+    [
+      9384.533753864554,
+      187836959.39584178,
+      13705.362432122756,
+      0.4649230384826777,
+      0.45178498808827916
+    ],
+    [
+      9395.454837226476,
+      187458945.83956125,
+      13691.56476957843,
+      0.46599985715434655,
+      0.4528882465041185
+    ],
+    [
+      9362.498415045578,
+      188154395.02585065,
+      13716.938252607637,
+      0.4640187835749705,
+      0.450858530493106
+    ],
+    [
+      9343.040999513036,
+      187760235.90240043,
+      13702.563114337421,
+      0.4651415949045854,
+      0.45200891085090333
+    ],
+    [
+      9360.573283204178,
+      187638262.69315907,
+      13698.111646981093,
+      0.46548905077481084,
+      0.45236489800365665
+    ]
+  ],
+  "params": {
+    "n_estimators": 1800,
+    "min_samples_split": 10,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 90,
+    "bootstrap": true
+  }
+},{
+  "_id": 58,
+  "region": "full",
+  "features": [
+    "region_auvergne-rhône-alpes",
+    "region_bourgogne-franche-comté",
+    "region_bretagne",
+    "region_centre-val de loire",
+    "region_corse",
+    "region_grand est",
+    "region_hauts-de-france",
+    "region_normandie",
+    "region_nouvelle-aquitaine",
+    "region_occitanie",
+    "region_pays de la loire",
+    "region_provence-alpes-côte d'azur",
+    "region_île-de-france"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      12802.885488334128,
+      360441737.9536689,
+      18985.30320942146,
+      -0.02676315975620258,
+      -0.05669123391950004
+    ],
+    [
+      12802.31292813415,
+      354981155.06187433,
+      18840.9435820469,
+      -0.011208009634242178,
+      -0.040682682560800876
+    ],
+    [
+      12112.86304347826,
+      330545608.3326087,
+      18180.913297538402,
+      0.05839968705635612,
+      0.030953938024366523
+    ],
+    [
+      12358.545652173912,
+      344254427.2543478,
+      18554.094622329267,
+      0.019348409830465596,
+      -0.009235605129632951
+    ],
+    [
+      11689.589130434782,
+      323425456.95869565,
+      17984.033389612454,
+      0.07868232458919677,
+      0.05182777351220025
+    ],
+    [
+      11584.945652173914,
+      322280466.07173914,
+      17952.171625509243,
+      0.0819439736636296,
+      0.05518449307534978
+    ],
+    [
+      11691.189130434783,
+      323467681.9326087,
+      17985.20730858026,
+      0.07856204149467583,
+      0.05170398440819779
+    ],
+    [
+      11726.441304347825,
+      323158241.9326087,
+      17976.602624873496,
+      0.07944351985497555,
+      0.0526111560839323
+    ],
+    [
+      11443.05,
+      320023985.65434784,
+      17889.21422685602,
+      0.08837183902806334,
+      0.06179971774412796
+    ],
+    [
+      11359.730434782608,
+      319874325.41086954,
+      17885.030763486808,
+      0.08879816486190273,
+      0.06223847011572503
+    ],
+    [
+      11331.28043478261,
+      318630942.87173915,
+      17850.236493440058,
+      0.09234009480573013,
+      0.0658836401700228
+    ],
+    [
+      11264.965217391304,
+      317739521.4978261,
+      17825.249549384327,
+      0.09487941955693524,
+      0.06849698111352753
+    ],
+    [
+      11275.765217391305,
+      317435553.65434784,
+      17816.721181360725,
+      0.0957453097981874,
+      0.06938811030800007
+    ],
+    [
+      11377.591304347827,
+      319088735.70652175,
+      17863.055049641473,
+      0.09103601492801194,
+      0.06454154899542042
+    ],
+    [
+      11298.15652173913,
+      317225282.4195652,
+      17810.819251779667,
+      0.09634429358585006,
+      0.07000455326436139
+    ],
+    [
+      11295.565217391304,
+      317391444.0021739,
+      17815.48326602941,
+      0.09587096163334652,
+      0.06951742464059651
+    ],
+    [
+      11330.04347826087,
+      317602611.3586956,
+      17821.408792760903,
+      0.09526942513135717,
+      0.06889835456343707
+    ],
+    [
+      11351.243478260869,
+      317603071.42826086,
+      17821.42170053391,
+      0.09526811456592932,
+      0.06889700579767166
+    ],
+    [
+      11328.060869565217,
+      316965605.55,
+      17803.52789617833,
+      0.09708401547439749,
+      0.07076583655324764
+    ],
+    [
+      11330.947826086956,
+      316633643.2543478,
+      17794.20251807728,
+      0.09802965139752562,
+      0.07173903585530106
+    ],
+    [
+      11256.532608695652,
+      316904221.23695654,
+      17801.803875926635,
+      0.0972588763314608,
+      0.0709457942514361
+    ]
+  ],
+  "params": {
+    "n_estimators": 1800,
+    "min_samples_split": 10,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 90,
+    "bootstrap": true
+  }
+},{
+  "_id": 59,
+  "region": "full",
+  "features": [
+    "region_auvergne-rhône-alpes",
+    "region_bourgogne-franche-comté",
+    "region_bretagne",
+    "region_centre-val de loire",
+    "region_corse",
+    "region_grand est",
+    "region_hauts-de-france",
+    "region_normandie",
+    "region_nouvelle-aquitaine",
+    "region_occitanie",
+    "region_pays de la loire",
+    "region_provence-alpes-côte d'azur",
+    "region_île-de-france"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      11553.542432449847,
+      338047325.7764583,
+      18386.063357240404,
+      0.03703011107446641,
+      0.008961482025067524
+    ],
+    [
+      11570.79862408179,
+      323584586.7187115,
+      17988.45704107808,
+      0.07822902365869766,
+      0.05136125977430994
+    ],
+    [
+      11610.774904535587,
+      321716768.5920973,
+      17936.464774087934,
+      0.08354973610565308,
+      0.056837060252230454
+    ],
+    [
+      11644.58797250948,
+      323496630.74959505,
+      17986.01208577363,
+      0.07847957718582843,
+      0.05161911643115524
+    ],
+    [
+      11501.905315122927,
+      320449095.41314936,
+      17901.092017336523,
+      0.08716086096079423,
+      0.06055344210987568
+    ],
+    [
+      11385.62081219114,
+      319402148.798503,
+      17871.82555864126,
+      0.0901432187206177,
+      0.06362272958018733
+    ],
+    [
+      11449.207328886267,
+      320240544.8888807,
+      17895.26599100669,
+      0.08775494309035714,
+      0.06116484053469495
+    ],
+    [
+      11369.963005388288,
+      319117919.6190211,
+      17863.87191005973,
+      0.09095288092032994,
+      0.0644559917991736
+    ],
+    [
+      11351.439287519812,
+      318928371.6929364,
+      17858.565779281842,
+      0.09149283178344836,
+      0.06501168114036504
+    ],
+    [
+      11299.697148253379,
+      319469528.3137913,
+      17873.71053569435,
+      0.08995127978365369,
+      0.06342519601053154
+    ],
+    [
+      11221.886107961052,
+      317612582.14921343,
+      17821.688532493587,
+      0.09524102209336427,
+      0.06886912363420228
+    ],
+    [
+      11228.351063394886,
+      317333326.67379224,
+      17813.852100929555,
+      0.09603651607791375,
+      0.06968780466314439
+    ],
+    [
+      11212.632617305411,
+      316867862.88231295,
+      17800.782648027387,
+      0.09736244763069302,
+      0.07105238444504058
+    ],
+    [
+      11231.596642636841,
+      317138669.9888741,
+      17808.387630239693,
+      0.0965910198765274,
+      0.07025847112853378
+    ],
+    [
+      11238.895717026071,
+      316486007.6187952,
+      17790.05361483757,
+      0.09845020988365771,
+      0.07217185277264326
+    ],
+    [
+      11242.465312270477,
+      316833019.0389295,
+      17799.803904507757,
+      0.0974617046560683,
+      0.07115453461241117
+    ],
+    [
+      11275.598438780306,
+      316532535.93698263,
+      17791.361272735223,
+      0.09831766817727405,
+      0.07203544774297943
+    ],
+    [
+      11281.723506382124,
+      316266698.2530452,
+      17783.888726964225,
+      0.09907493991248306,
+      0.07281479242114286
+    ],
+    [
+      11250.198051909183,
+      315879551.4579644,
+      17773.000631800034,
+      0.10017777575181552,
+      0.07394977369973843
+    ],
+    [
+      11245.524039909016,
+      316103928.30931735,
+      17779.311806403457,
+      0.09953861035943001,
+      0.07329197792596054
+    ],
+    [
+      11218.508744580455,
+      316195341.9353988,
+      17781.88240697252,
+      0.09927820726601189,
+      0.07302398460784632
+    ]
+  ],
+  "params": {
+    "n_estimators": 800,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 10,
+    "bootstrap": true
+  }
+},{
+  "_id": 60,
+  "region": "full",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      11336.54254183822,
+      280675730.0607484,
+      16753.379660854953,
+      0.2004602433109548,
+      0.17344876504443296
+    ],
+    [
+      11291.104162765323,
+      314406980.92334384,
+      17731.525059152238,
+      0.10437257623101337,
+      0.07411489299557461
+    ],
+    [
+      10263.0257542763,
+      269257059.15677387,
+      16409.054182273085,
+      0.23298774882167383,
+      0.20707517276835197
+    ],
+    [
+      11135.442000182544,
+      367865260.8558107,
+      19179.81389002017,
+      -0.047909988852075536,
+      -0.08331235334032128
+    ],
+    [
+      9949.335006570622,
+      263305164.2076073,
+      16226.680628138563,
+      0.24994246249950203,
+      0.22460268082718793
+    ],
+    [
+      8915.362963644842,
+      190563656.4751786,
+      13804.479580019617,
+      0.45715570242228576,
+      0.4388163680446603
+    ],
+    [
+      8894.834395680007,
+      194145324.02379978,
+      13933.604129004088,
+      0.44695287655007443,
+      0.4282688521091985
+    ],
+    [
+      8742.775463609252,
+      192130584.45834053,
+      13861.117720383898,
+      0.4526921130049343,
+      0.43420198168753343
+    ],
+    [
+      8768.430929714696,
+      191783634.74601415,
+      13848.596851162003,
+      0.45368044245015116,
+      0.43522370064103466
+    ],
+    [
+      8689.396600459466,
+      189944992.29090494,
+      13782.053268323445,
+      0.458918044364923,
+      0.4406382485664406
+    ],
+    [
+      8584.262851544481,
+      179258864.78659317,
+      13388.75889642476,
+      0.48935880881183946,
+      0.4721074172176448
+    ],
+    [
+      8605.488542090403,
+      179013147.6252912,
+      13379.57950106397,
+      0.49005876473363996,
+      0.4728310202989656
+    ],
+    [
+      8549.924040492664,
+      179148569.3120055,
+      13384.639304516408,
+      0.4896729992012139,
+      0.4724322221472008
+    ],
+    [
+      8549.474217804678,
+      178705067.37920377,
+      13368.061466764872,
+      0.49093636966565224,
+      0.4737382740462486
+    ],
+    [
+      8580.932878834454,
+      181174448.85248712,
+      13460.105826199404,
+      0.4839020291407551,
+      0.46646628688199687
+    ],
+    [
+      8565.556740321295,
+      180946032.3322898,
+      13451.618204970351,
+      0.4845527020327176,
+      0.4671389419662554
+    ],
+    [
+      8577.810162669004,
+      181890222.63595653,
+      13486.668329723117,
+      0.48186305841622656,
+      0.4643584320113694
+    ],
+    [
+      8616.74294208405,
+      185096862.5926788,
+      13605.030782496553,
+      0.4727285453244384,
+      0.45491532050431815
+    ],
+    [
+      8577.042442036874,
+      184102391.35561094,
+      13568.43363677661,
+      0.4755614204388896,
+      0.4578439008591224
+    ],
+    [
+      8571.322978986751,
+      185809593.30950442,
+      13631.199261602202,
+      0.4706982431540575,
+      0.4528164270443973
+    ],
+    [
+      8507.240838811382,
+      167487801.28971633,
+      12941.707819670337,
+      0.5228901484906467,
+      0.5067715724261416
+    ]
+  ],
+  "params": {
+    "n_estimators": 800,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 10,
+    "bootstrap": true
+  }
+},{
+  "_id": 61,
+  "region": "full",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur",
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      11108.077995103096,
+      269752272.0441318,
+      16424.136873642154,
+      0.23157707326600052,
+      0.20561683925471674
+    ],
+    [
+      9448.308663584254,
+      188355565.31750277,
+      13724.269208868747,
+      0.46344572495673597,
+      0.4453188913404095
+    ],
+    [
+      8521.799680624252,
+      167042363.50222024,
+      12924.486972496055,
+      0.5241590334781647,
+      0.5080833251497243
+    ],
+    [
+      8509.852681954728,
+      165457441.47809374,
+      12863.026139991078,
+      0.5286738811611723,
+      0.5127507014706714
+    ],
+    [
+      8487.27950730413,
+      159491192.7707037,
+      12628.982253954739,
+      0.545669483306112,
+      0.5303204793637509
+    ],
+    [
+      8426.006452414105,
+      157628535.26269093,
+      12555.020321078375,
+      0.5509754950885672,
+      0.5358057483010188
+    ],
+    [
+      8342.811326007926,
+      156763741.3204028,
+      12520.53278899915,
+      0.5534389682861023,
+      0.5383524469444165
+    ],
+    [
+      8290.249816815944,
+      155713209.88138354,
+      12478.50992231779,
+      0.5564315378644047,
+      0.5414461168463103
+    ],
+    [
+      8327.348975614497,
+      156584341.9814417,
+      12513.366532689823,
+      0.5539500096354633,
+      0.5388807532042289
+    ],
+    [
+      8313.78249990167,
+      156673293.748902,
+      12516.920298096573,
+      0.5536966194527891,
+      0.5386188025424103
+    ],
+    [
+      8300.432653916403,
+      155946396.65587834,
+      12487.849961297514,
+      0.5557672763092559,
+      0.5407594140224065
+    ],
+    [
+      8333.359898440636,
+      155822626.84820497,
+      12482.893368454486,
+      0.5561198500137625,
+      0.5411238990007139
+    ],
+    [
+      8260.266946195037,
+      155169520.92316976,
+      12456.705861630102,
+      0.5579803035424014,
+      0.543047205689104
+    ],
+    [
+      8257.556072877158,
+      155727503.5935671,
+      12479.082642308573,
+      0.5563908204459127,
+      0.5414040238393557
+    ],
+    [
+      8349.464806047012,
+      158242210.72169554,
+      12579.436025581415,
+      0.5492273641508749,
+      0.5339985588857018
+    ],
+    [
+      8343.651877523787,
+      157930326.33116865,
+      12567.033314635903,
+      0.5501158056618776,
+      0.5349170153126167
+    ],
+    [
+      8339.714046744099,
+      158366077.01937613,
+      12584.358427006762,
+      0.5488745155825712,
+      0.533633789757658
+    ],
+    [
+      8337.071360993028,
+      157938954.24643582,
+      12567.376585685488,
+      0.5500912279712026,
+      0.534891607294554
+    ],
+    [
+      8311.720592747171,
+      158489480.5726378,
+      12589.26052525079,
+      0.5485229851993492,
+      0.5332703833479758
+    ],
+    [
+      8290.366176658166,
+      157912124.41299325,
+      12566.309100646587,
+      0.5501676560916462,
+      0.5349706174460938
+    ],
+    [
+      8305.536470000889,
+      156013593.85197726,
+      12490.540174547186,
+      0.5555758567311988,
+      0.5405615275667123
+    ]
+  ],
+  "params": {
+    "n_estimators": 1800,
+    "min_samples_split": 10,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 10,
+    "bootstrap": true
+  }
+},{
+  "_id": 62,
+  "region": "full",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan",
+    "region_auvergne-rhône-alpes",
+    "region_bourgogne-franche-comté",
+    "region_bretagne",
+    "region_centre-val de loire",
+    "region_corse",
+    "region_grand est",
+    "region_hauts-de-france",
+    "region_normandie",
+    "region_nouvelle-aquitaine",
+    "region_occitanie",
+    "region_pays de la loire",
+    "region_provence-alpes-côte d'azur",
+    "region_île-de-france"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      12446.362840346696,
+      287015412.5092985,
+      16941.529225819566,
+      0.18240086866783012,
+      0.13729195107708958
+    ],
+    [
+      10811.90836614814,
+      271976845.3377834,
+      16491.720508721442,
+      0.22524009931546274,
+      0.18249472548459167
+    ],
+    [
+      9820.663360878381,
+      244864495.92344776,
+      15648.1467248824,
+      0.302473001673335,
+      0.2639887534897948
+    ],
+    [
+      10834.243796327628,
+      371512143.13882226,
+      19274.650272801897,
+      -0.058298587013382974,
+      -0.1166874745727422
+    ],
+    [
+      10118.41304347826,
+      251569144.19347826,
+      15860.93137849976,
+      0.28337397645535267,
+      0.24383598894944103
+    ],
+    [
+      8945.419565217391,
+      202435600.2630435,
+      14227.986514719625,
+      0.4233369926766263,
+      0.3915211026174056
+    ],
+    [
+      9711.44347826087,
+      263725783.9152174,
+      16239.636200211426,
+      0.2487442749019908,
+      0.2072956831724454
+    ],
+    [
+      9047.019565217392,
+      220764164.43695652,
+      14858.134621713338,
+      0.37112579601598794,
+      0.3364292882099734
+    ],
+    [
+      9740.426086956522,
+      280249339.5326087,
+      16740.649316338022,
+      0.20167486980911875,
+      0.15762934538479423
+    ],
+    [
+      8966.671739130436,
+      192948311.35869566,
+      13890.583549969946,
+      0.45036271613543466,
+      0.4200379004739413
+    ],
+    [
+      8630.541304347826,
+      187339540.01956522,
+      13687.203513485332,
+      0.466339999496708,
+      0.4368966891241125
+    ],
+    [
+      8589.81956521739,
+      183350501.82826087,
+      13540.697981576166,
+      0.4777032713556909,
+      0.44888690012014276
+    ],
+    [
+      8635.576086956522,
+      183627735.6369565,
+      13550.931172320097,
+      0.4769135363404742,
+      0.44805359351787954
+    ],
+    [
+      8695.8,
+      191072707.88043478,
+      13822.905189591469,
+      0.45570560612570654,
+      0.42567557060160754
+    ],
+    [
+      8624.567391304348,
+      182390211.32391304,
+      13505.192013589183,
+      0.48043877839803795,
+      0.45177333168896416
+    ],
+    [
+      8705.27608695652,
+      195733440.95869565,
+      13990.47679525954,
+      0.44242892776602527,
+      0.41166638584966797
+    ],
+    [
+      8850.269565217392,
+      205672226.7673913,
+      14341.277027077864,
+      0.4141170591710842,
+      0.38179248312535086
+    ],
+    [
+      8833.626086956521,
+      208528555.1152174,
+      14440.517827114698,
+      0.40598045230539404,
+      0.37320696001879505
+    ],
+    [
+      8647.467119565217,
+      194044384.81932744,
+      13929.981508219149,
+      0.44724041443932017,
+      0.41674333385666196
+    ],
+    [
+      8648.497826086956,
+      186449923.46304348,
+      13654.666728376913,
+      0.46887418300090333,
+      0.43957068964922896
+    ],
+    [
+      8396.678260869565,
+      166975638.24565217,
+      12921.905364366827,
+      0.5243491086777194,
+      0.498106300880628
+    ]
+  ],
+  "params": {
+    "n_estimators": 1800,
+    "min_samples_split": 10,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 10,
+    "bootstrap": true
+  }
+},{
+  "_id": 63,
+  "region": "full",
+  "features": [
+    "contract_contrat pro",
+    "contract_intérim",
+    "contract_temps plein",
+    "contract_indépendant",
+    "contract_cdd",
+    "contract_temps partiel",
+    "contract_cdi",
+    "contract_stage",
+    "contract_commission",
+    "contract_apprentissage",
+    "contract_nan",
+    "region_auvergne-rhône-alpes",
+    "region_bourgogne-franche-comté",
+    "region_bretagne",
+    "region_centre-val de loire",
+    "region_corse",
+    "region_grand est",
+    "region_hauts-de-france",
+    "region_normandie",
+    "region_nouvelle-aquitaine",
+    "region_occitanie",
+    "region_pays de la loire",
+    "region_provence-alpes-côte d'azur",
+    "region_île-de-france"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      10942.832622769425,
+      267178556.6723002,
+      16345.597470643286,
+      0.23890862188880346,
+      0.19691737344128912
+    ],
+    [
+      9159.371149507351,
+      171202185.2907891,
+      13084.425294631366,
+      0.5123092632825648,
+      0.4854021881533269
+    ],
+    [
+      8417.621444868142,
+      154483000.2065174,
+      12429.11904386298,
+      0.5599359432645656,
+      0.5356565470308865
+    ],
+    [
+      8358.77173537333,
+      155317508.03176275,
+      12462.644503947096,
+      0.5575587438415611,
+      0.5331481917776473
+    ],
+    [
+      8157.191866932529,
+      151903845.05468896,
+      12324.927791053746,
+      0.5672829877778547,
+      0.543408945724219
+    ],
+    [
+      8066.911934652484,
+      151625562.88213652,
+      12313.633212100178,
+      0.5680757091880217,
+      0.5442454034880505
+    ],
+    [
+      8005.558574387757,
+      152558259.72474167,
+      12351.447677286322,
+      0.5654188061261156,
+      0.5414419126710047
+    ],
+    [
+      8016.496563711861,
+      152955335.98849124,
+      12367.511309414325,
+      0.5642876849592211,
+      0.5402483848190401
+    ],
+    [
+      7988.576539447011,
+      152050357.2798023,
+      12330.870094190526,
+      0.5668656294662053,
+      0.5429685607470993
+    ],
+    [
+      7990.247370125165,
+      152120178.34729144,
+      12333.7009185115,
+      0.5666667354638634,
+      0.5427586932825592
+    ],
+    [
+      7946.115292707521,
+      152486793.8642313,
+      12348.554322844084,
+      0.5656223855261289,
+      0.5416567240379153
+    ],
+    [
+      7930.612037148754,
+      150464294.6373631,
+      12266.388818122598,
+      0.5713837263424651,
+      0.5477359319337736
+    ],
+    [
+      7919.579149767876,
+      150817303.80605632,
+      12280.769674823166,
+      0.5703781357814826,
+      0.546674860514254
+    ],
+    [
+      7955.454959683645,
+      150644232.96368527,
+      12273.721235374594,
+      0.5708711496205109,
+      0.5471950751168149
+    ],
+    [
+      7917.147250468134,
+      149044588.6473979,
+      12208.381901275776,
+      0.575427935585427,
+      0.552003269962554
+    ],
+    [
+      7926.526991110893,
+      148158330.07591215,
+      12172.030647180944,
+      0.5779525534512323,
+      0.554667177089921
+    ],
+    [
+      7910.183183993547,
+      149502576.8023106,
+      12227.12463346598,
+      0.5741232993140042,
+      0.5506266537589147
+    ],
+    [
+      7937.45007642611,
+      150730968.8283889,
+      12277.254124126815,
+      0.5706240717126834,
+      0.5469343653244176
+    ],
+    [
+      7921.262425399948,
+      152000214.82994956,
+      12328.836718439805,
+      0.5670084664765389,
+      0.543119278420072
+    ],
+    [
+      7898.203153470851,
+      150844325.18274647,
+      12281.86977551653,
+      0.5703011620262542,
+      0.5465936399311511
+    ],
+    [
+      7880.787856255844,
+      149698168.65263107,
+      12235.120295797302,
+      0.5735661315803289,
+      0.5500387457364849
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 10,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 10,
+    "bootstrap": false
+  }
+},{
+  "_id": 64,
+  "region": "full",
+  "features": [
+    "region_auvergne-rhône-alpes",
+    "region_bourgogne-franche-comté",
+    "region_bretagne",
+    "region_centre-val de loire",
+    "region_corse",
+    "region_grand est",
+    "region_hauts-de-france",
+    "region_normandie",
+    "region_nouvelle-aquitaine",
+    "region_occitanie",
+    "region_pays de la loire",
+    "region_provence-alpes-côte d'azur",
+    "region_île-de-france",
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "LinearRegression",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      13507.136172359416,
+      384347678.1127851,
+      19604.78712235318,
+      -0.09486220620423635,
+      -0.1369722910582456
+    ],
+    [
+      14214.047925718793,
+      407526926.4064925,
+      20187.296163837604,
+      -0.1608911804122115,
+      -0.20554084119729676
+    ],
+    [
+      12909.046251363392,
+      352259566.16092515,
+      18768.57922595435,
+      -0.003455224855873462,
+      -0.04204965658109949
+    ],
+    [
+      12218.6,
+      336611461.55,
+      18346.974179684235,
+      0.041120349065519424,
+      0.004240362491116256
+    ],
+    [
+      11444.997826086956,
+      312170746.4195652,
+      17668.354377801155,
+      0.11074276859023091,
+      0.07654056738216275
+    ],
+    [
+      11337.22391304348,
+      308919640.1934783,
+      17576.109927782036,
+      0.12000394938563919,
+      0.0861579474389329
+    ],
+    [
+      11404.339130434782,
+      309346810.0021739,
+      17588.257730718353,
+      0.11878710300980366,
+      0.08489429927941139
+    ],
+    [
+      11392.11304347826,
+      311848225.9326087,
+      17659.2249527721,
+      0.11166150834593636,
+      0.07749464328231848
+    ],
+    [
+      11122.6,
+      306636220.8804348,
+      17511.031405386573,
+      0.1265085535477971,
+      0.09291272868425082
+    ],
+    [
+      11006.773913043478,
+      307370380.08913046,
+      17531.981636116623,
+      0.12441720965082215,
+      0.09074094848354597
+    ],
+    [
+      11018.77608695652,
+      306330523.8108696,
+      17502.300529098156,
+      0.12737936970481867,
+      0.09381703777038852
+    ],
+    [
+      10971.939130434783,
+      305869063.8804348,
+      17489.11272421888,
+      0.12869389576099644,
+      0.09518212252103464
+    ],
+    [
+      10972.53043478261,
+      305211742.59347826,
+      17470.31031760679,
+      0.13056635727281296,
+      0.09712660178330568
+    ],
+    [
+      11138.410869565218,
+      308414592.54130435,
+      17561.736603801583,
+      0.12144264049316067,
+      0.08765197281982062
+    ],
+    [
+      11032.895652173913,
+      307024403.3934783,
+      17522.11184171241,
+      0.12540276733691758,
+      0.09176441223449128
+    ],
+    [
+      11041.695652173914,
+      307263216.29347825,
+      17528.925132291435,
+      0.12472247906290512,
+      0.09105795902686298
+    ],
+    [
+      11095.576086956522,
+      307478035.04565215,
+      17535.051612289375,
+      0.1241105411058605,
+      0.09042248499454741
+    ],
+    [
+      11079.854347826087,
+      306831171.5673913,
+      17516.597031598096,
+      0.12595321224777856,
+      0.09233602810346231
+    ],
+    [
+      11043.452173913043,
+      306070737.01086956,
+      17494.87745058163,
+      0.12811940474389405,
+      0.09458553569558226
+    ],
+    [
+      11123.97391304348,
+      306539399.6369565,
+      17508.266608575406,
+      0.12678436091253142,
+      0.09319914402455176
+    ],
+    [
+      11005.81956521739,
+      306103925.4804348,
+      17495.825944505585,
+      0.1280248632569072,
+      0.09448735799755736
+    ]
+  ],
+  "params": {
+    "n_estimators": 200,
+    "min_samples_split": 10,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "max_depth": 10,
+    "bootstrap": false
+  }
+},{
+  "_id": 65,
+  "region": "full",
+  "features": [
+    "region_auvergne-rhône-alpes",
+    "region_bourgogne-franche-comté",
+    "region_bretagne",
+    "region_centre-val de loire",
+    "region_corse",
+    "region_grand est",
+    "region_hauts-de-france",
+    "region_normandie",
+    "region_nouvelle-aquitaine",
+    "region_occitanie",
+    "region_pays de la loire",
+    "region_provence-alpes-côte d'azur",
+    "region_île-de-france",
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "RandomForestRegressor",
+  "row": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      11484.561536748435,
+      335185748.20964617,
+      18308.078768938212,
+      0.04518167099388182,
+      0.008457889109031003
+    ],
+    [
+      11700.758717104529,
+      321371557.6743944,
+      17926.83903186489,
+      0.08453311237793293,
+      0.04932284746939186
+    ],
+    [
+      11469.312733997012,
+      313217029.50086284,
+      17697.938566422443,
+      0.10776230098775053,
+      0.07344546641035621
+    ],
+    [
+      11242.450404069317,
+      310118790.25500435,
+      17610.1899551085,
+      0.11658802116049938,
+      0.08261063735898
+    ],
+    [
+      11085.184211282363,
+      307935241.0199321,
+      17548.083685118785,
+      0.12280813297333892,
+      0.08906998424154422
+    ],
+    [
+      10967.519585564718,
+      306678341.4124754,
+      17512.234049728646,
+      0.12638856796895115,
+      0.09278812827544924
+    ],
+    [
+      11044.825368963504,
+      307729654.00274837,
+      17542.22488747503,
+      0.12339377318406153,
+      0.08967814907575611
+    ],
+    [
+      10963.313761029613,
+      306700155.38292485,
+      17512.856859545358,
+      0.12632642815863748,
+      0.09272359847243117
+    ],
+    [
+      10922.531516505349,
+      306220800.01453227,
+      17499.165694813346,
+      0.12769193159753212,
+      0.09414162127436021
+    ],
+    [
+      10857.90943849324,
+      307250068.67335296,
+      17528.550101858196,
+      0.12475993169549904,
+      0.09109685214532581
+    ],
+    [
+      10836.110499164532,
+      306542974.34504324,
+      17508.36869457127,
+      0.12677417791155288,
+      0.09318856936968944
+    ],
+    [
+      10849.463074099916,
+      306706928.5172694,
+      17513.0502345328,
+      0.12630713404231098,
+      0.09270356227470744
+    ],
+    [
+      10854.81722440909,
+      306541753.02448785,
+      17508.333816342656,
+      0.1267776569951896,
+      0.09319218226423531
+    ],
+    [
+      10910.125589845702,
+      307210446.13922423,
+      17527.419836907662,
+      0.12487280141633261,
+      0.09121406300926838
+    ],
+    [
+      10933.411582204184,
+      307909352.4993352,
+      17547.346024380302,
+      0.12288187964696318,
+      0.08914656732569248
+    ],
+    [
+      10937.762548759003,
+      308146775.5245388,
+      17554.109932563908,
+      0.12220555060432559,
+      0.08844422562756882
+    ],
+    [
+      10970.502925151352,
+      307618282.8588906,
+      17539.050226819312,
+      0.12371102775125542,
+      0.0900076057416882
+    ],
+    [
+      10977.891612981122,
+      307661241.0396958,
+      17540.274827940862,
+      0.12358865602562963,
+      0.08988052741123065
+    ],
+    [
+      10981.866684287892,
+      307782980.0694795,
+      17543.744756165357,
+      0.12324186724474095,
+      0.08952040060030786
+    ],
+    [
+      10994.174451391471,
+      308440947.5333618,
+      17562.486940446724,
+      0.12136756501751267,
+      0.08757400982587848
+    ],
+    [
+      10933.955537883488,
+      307776527.3115479,
+      17543.560850396017,
+      0.12326024872897368,
+      0.08953948906470333
+    ]
+  ],
+  "params": {
+    "n_estimators": 600,
+    "min_samples_split": 5,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "max_depth": 10,
+    "bootstrap": true
+  }
+},{
+  "_id": 66,
+  "region": "île-de-france",
+  "features": [
+    "query_data+scientist",
+    "query_business+intelligence",
+    "query_data+analyst",
+    "query_developpeur"
+  ],
+  "model": "GradientBoostingRegressor",
+  "params": {
+    "warm_start": true,
+    "subsample": 1,
+    "n_estimators": 800,
+    "min_samples_split": 10,
+    "min_samples_leaf": 4,
+    "max_features": "auto",
+    "max_depth": 20,
+    "loss": "lad",
+    "criterion": "mse"
+  },
+  "row": [
+    [
+      6.3422024105e-312,
+      6.34233963577e-312,
+      1.1126061922841707e-306,
+      1.1126156987424238e-306,
+      1.6910995932187948e-306
+    ],
+    [
+      15770.536584911642,
+      604342108.9972482,
+      24583.37057844689,
+      -0.03577352380541021,
+      -0.06303072180028946
+    ],
+    [
+      15770.536584911642,
+      604342108.9972482,
+      24583.37057844689,
+      -0.03577352380541021,
+      -0.06303072180028946
+    ],
+    [
+      15770.536584911642,
+      604342108.9972482,
+      24583.37057844689,
+      -0.03577352380541021,
+      -0.06303072180028946
+    ],
+    [
+      15770.536584911642,
+      604342108.9972482,
+      24583.37057844689,
+      -0.03577352380541021,
+      -0.06303072180028946
+    ],
+    [
+      15770.536584911642,
+      604342108.9972482,
+      24583.37057844689,
+      -0.03577352380541021,
+      -0.06303072180028946
+    ],
+    [
+      15770.536584911642,
+      604342108.9972482,
+      24583.37057844689,
+      -0.03577352380541021,
+      -0.06303072180028946
+    ],
+    [
+      15770.536584911642,
+      604342108.9972482,
+      24583.37057844689,
+      -0.03577352380541021,
+      -0.06303072180028946
+    ]
+  ]
+}]

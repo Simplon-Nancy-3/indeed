@@ -213,4 +213,4 @@ indeed_pl = Pipeline(
     verbose=1)
 # indeed_pl.fit_transform(pd.read_csv('csv/jobs_it.csv')).info()
 
-
+    
